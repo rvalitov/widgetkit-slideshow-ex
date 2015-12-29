@@ -1,4 +1,4 @@
-![SlideshowEx widget logo](https://raw.githubusercontent.com/rvalitov/widgetkit-slideshow-ex/master/images/slideshowex-logo.png)
+![SlideshowEx widget logo](https://raw.githubusercontent.com/rvalitov/widgetkit-slideshow-ex/master/images/slideshowex-logo.jpg)
 # Overview
 **SlideshowEx** is an advanced Slideshow widget for [Yootheme Widgetkit2](https://yootheme.com/widgetkit). After installation it becomes available in the Widgets list as a "native" widget and can be used with any [Warp 7 theme](https://yootheme.com/themes).
 
@@ -31,7 +31,7 @@ The installation is very simple. You just need to copy the folder _slideshow_ex_
 # Setup and usage
 ## Configure the widget
 After successful installation you should see the SlideshowEx widget in the widgetkit control panel page, so that you can select it from the list:
-![SlideshowEx widget](https://raw.githubusercontent.com/rvalitov/widgetkit-map-ex/master/images/widgets-list.jpeg)
+![SlideshowEx widget](https://raw.githubusercontent.com/rvalitov/widgetkit-slideshow-ex/master/images/widgets-list.jpeg)
 
 You should configure the widget as usual, e.g. the [Yootheme documentation](http://yootheme.com/demo/widgetkit/joomla/index.php/home/slideshow) can be useful.
 
@@ -41,7 +41,7 @@ If you don't activate any of these features, then the SlideshowEx behaves exactl
 
 Options and description:
 * **Add link to image** - if checked, then the whole image will be clickable. This option is available only if the 'Show media' option is checked. If you use an overlay, probably you will want to activate 'Add link to overlay' option (see below) to make the whole area of the slide clickable.
-* **Add link to overlay** - if checked, then the widget makes the whole overlay clickable. This option is available only if the 'Overlay' option is set to anything other than 'None'. Probably you will want to activate this feature both with 'Add link to image' option (see above) to make the whole area of the slide clickable. **Warning!** This feature works only if you don't have links (<a> tags) inside your overlay. Such links can get there from the content you display in the overlay. There is a small possibility that you may even experience incorrect rendering issues if you activate this feature with links inside the overlay.
+* **Add link to overlay** - if checked, then the widget makes the whole overlay clickable. This option is available only if the 'Overlay' option is set to anything other than 'None'. Probably you will want to activate this feature both with 'Add link to image' option (see above) to make the whole area of the slide clickable. **Warning!** This feature works only if you don't have links (`<a>` tags) inside your overlay. Such links can get there from the content you display in the overlay. There is a small possibility that you may even experience incorrect rendering issues if you activate this feature with links inside the overlay.
 
 # Authors, Contributors and Acknowledgment
 * This widget is created by [Ramil Valitov](http://www.valitov.me).
