@@ -183,6 +183,13 @@
                     </div>
                 </div>
 
+				<div class="uk-form-row" ng-if="widget.data.media">
+                    <span class="uk-form-label">{{'Link' | trans}}</span>
+                    <div class="uk-form-controls uk-form-controls-text">
+                        <label><input type="checkbox" ng-model="widget.data['image_link']"> {{'Add link to image' | trans}}<span  data-uk-tooltip title="Makes the whole image clickable. If you use an overlay, probably you will want to activate 'Add link to overlay' option (see below) to make the whole area of the slide clickable."><i class="uk-icon uk-icon-question-circle uk-margin-small-left" style="color:#ffb105"></i></span></label>
+                    </div>
+                </div>
+				
                 <h3 class="wk-form-heading">{{'Overlay' | trans}}</h3>
 
                 <div class="uk-form-row">
@@ -205,6 +212,9 @@
                         </p>
                         <p class="uk-form-controls-condensed" ng-if="widget.data.overlay != 'none'">
                             <label><input type="checkbox" ng-model="widget.data['overlay_background']"> {{'Show panel background' | trans}}</label>
+                        </p>
+						<p class="uk-form-controls-condensed" ng-if="widget.data.overlay != 'none'">
+                            <label><input type="checkbox" ng-model="widget.data['overlay_link']"> {{'Add link to overlay' | trans}}<span  data-uk-tooltip title="Makes the whole overlay clickable. Probably you will want to activate this feature both with 'Add link to image' option (see above) to make the whole area of the slide clickable. <h4>Warning!</h4> This feature works only if you don't have links ('a' tags) inside your overlay. Such links can get there from the content you display in the overlay. There is a small possibility that you may even experience incorrect rendering issues if you activate this feature with links inside the overlay."><i class="uk-icon uk-icon-warning uk-margin-small-left" style="color:#ffb105"></i></span></label>
                         </p>
                     </div>
                 </div>

@@ -158,13 +158,24 @@ $class = $settings['class'] ? ' class="' . $settings['class'] . '"' : '';
 
                 <?php if ($item['media'] && $settings['media']) : ?>
 
-                    <?php echo $media; ?>
+					<?php if ( ($settings['image_link']) && ($item['link']) ): ?>
+					<a href="<?php echo $item->escape('link'); ?>">
+					<?php echo $media; ?>
+					</a>
+					<?php
+					else:
+						echo $media;
+					endif;
+					?>
 
                     <?php if ($item['media.poster']) : ?>
                     <div class="uk-cover-background uk-position-cover uk-hidden-notouch" style="background-image: url(<?php echo $item['media.poster'] ?>);"></div>
                     <?php endif ?>
 
-                    <?php if ($settings['overlay'] != 'none' && (($item['title'] && $settings['title']) || ($item['content'] && $settings['content']) || ($item['link'] && $settings['link']))) : ?>
+                    <?php if ($settings['overlay'] != 'none' && (($item['title'] && $settings['title']) || ($item['content'] && $settings['content']) || ($item['link'] && ($settings['link'] || $settings['overlay_link'])))) : ?>
+					<?php if ($item['link'] && $settings['overlay_link']):?>
+					<a href="<?php echo $item->escape('link'); ?>" class="slideshow-ex">
+					<?php endif; ?>
                     <div class="<?php echo $overlay; ?>">
 
                         <?php if (in_array($settings['overlay'], array('center', 'middle-left'))) : ?>
@@ -187,7 +198,7 @@ $class = $settings['class'] ? ' class="' . $settings['class'] . '"' : '';
                         <div class="<?php echo $content_size; ?> uk-margin"><?php echo $item['content']; ?></div>
                         <?php endif; ?>
 
-                        <?php if ($item['link'] && $settings['link']) : ?>
+                        <?php if ($item['link'] && $settings['link'] && (!$settings['overlay_link']) ) : ?>
                         <p><a<?php if($link_style) echo ' class="' . $link_style . '"'; ?> href="<?php echo $item->escape('link'); ?>"<?php echo $link_target; ?>><?php echo $app['translator']->trans($settings['link_text']); ?></a></p>
                         <?php endif; ?>
 
@@ -196,6 +207,9 @@ $class = $settings['class'] ? ' class="' . $settings['class'] . '"' : '';
                         <?php endif; ?>
 
                     </div>
+					<?php if ($item['link'] && $settings['overlay_link']):?>
+					</a>
+					<?php endif; ?>
                     <?php endif; ?>
 
                 <?php elseif(($item['title'] && $settings['title']) || ($item['content'] && $settings['content'])) : ?>

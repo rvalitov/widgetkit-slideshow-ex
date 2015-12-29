@@ -1,0 +1,35 @@
+/* Transitions
+ ========================================================================== */
+/*
+ * Fade
+ */
+.uk-overlay-active .uk-active > a.slideshow-ex > .uk-overlay-fade {
+  opacity: 1;
+}
+/*
+ * Scale
+ */
+.uk-overlay-active .uk-active > a.slideshow-ex > .uk-overlay-scale {
+  -webkit-transform: scale(1.1);
+  transform: scale(1.1);
+}
+/*
+ * Spin
+ */
+.uk-overlay-active .uk-active > a.slideshow-ex > .uk-overlay-spin {
+  -webkit-transform: scale(1.1) rotate(3deg);
+  transform: scale(1.1) rotate(3deg);
+}
+/*
+ * Grayscale
+ */
+.uk-overlay-active .uk-active > a.slideshow-ex > .uk-overlay-grayscale {
+  -webkit-filter: grayscale(0%);
+  filter: grayscale(0%);
+}
+/* Hover */
+.uk-overlay-active .uk-active > a.slideshow-ex > [class*='uk-overlay-slide'] {
+  opacity: 1;
+  -webkit-transform: translateX(0) translateY(0);
+  transform: translateX(0) translateY(0);
+}

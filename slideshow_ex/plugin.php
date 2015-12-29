@@ -1,18 +1,25 @@
 <?php
+/*
+SlideshowEx plugin for Widgetkit 2.
+Author: Ramil Valitov
+E-mail: ramilvalitov@gmail.com
+Web: http://www.valitov.me/
+Git: https://github.com/rvalitov/widgetkit-slideshow-ex
+*/
 
 return array(
 
-    'name' => 'widget/slideshow',
+    'name' => 'widget/slideshow_ex',
 
     'main' => 'YOOtheme\\Widgetkit\\Widget\\Widget',
 
     'config' => array(
 
-        'name'  => 'slideshow',
-        'label' => 'Slideshow',
+        'name'  => 'slideshow_ex',
+        'label' => 'SlideshowEx',
         'core'  => true,
-        'icon'  => 'plugins/widgets/slideshow/widget.svg',
-        'view'  => 'plugins/widgets/slideshow/views/widget.php',
+        'icon'  => 'plugins/widgets/slideshow_ex/widget.svg',
+        'view'  => 'plugins/widgets/slideshow_ex/views/widget.php',
         'item'  => array('title', 'content', 'media'),
         'settings' => array(
             'nav'                => 'dotnav',
@@ -51,6 +58,9 @@ return array(
             'link_text'          => 'Read more',
             'badge'              => true,
             'badge_style'        => 'badge',
+			
+			'image_link'		=> false,
+			'overlay_link'		=> false,
 
             'link_target'        => false,
             'class'              => ''
@@ -63,10 +73,15 @@ return array(
         'init.site' => function($event, $app) {
             $app['scripts']->add('uikit-slideshow', 'vendor/assets/uikit/js/components/slideshow.min.js', array('uikit'));
             $app['scripts']->add('uikit-slideshow-fx', 'vendor/assets/uikit/js/components/slideshow-fx.min.js', array('uikit'));
+			//Adding private CSS:
+			$app['styles']->add('ram-slideshow-ex', 'plugins/widgets/slideshow_ex/css/slideshow-ex.css', array('widgetkit-application'));
         },
 
         'init.admin' => function($event, $app) {
-            $app['angular']->addTemplate('slideshow.edit', 'plugins/widgets/slideshow/views/edit.php', true);
+            $app['angular']->addTemplate('slideshow_ex.edit', 'plugins/widgets/slideshow_ex/views/edit.php', true);
+			//Adding tooltip:
+			$app['scripts']->add('uikit-tooltip', 'vendor/assets/uikit/js/components/tooltip.min.js', array('uikit'));
+			$app['styles']->add('uikit-tooltip', 'https://cdnjs.cloudflare.com/ajax/libs/uikit/2.24.3/css/components/tooltip.min.css', array('uikit'));
         }
 
     )
