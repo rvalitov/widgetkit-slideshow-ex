@@ -195,7 +195,17 @@ $class = $settings['class'] ? ' class="' . $settings['class'] . '"' : '';
                         <?php endif; ?>
 
                         <?php if ($item['content'] && $settings['content']) : ?>
-                        <div class="<?php echo $content_size; ?> uk-margin"><?php echo $item['content']; ?></div>
+                        <div class="<?php echo $content_size; ?> uk-margin"><?php
+						if ($item['link'] && $settings['overlay_link'])
+							/*
+							We must strip <a> tags from the text, otherwise such tags will corrupt everything and break our approach.
+							Our approach is to use the HTML5 <a> tag on the whole <div> - this is allowed in HTML5 (before that <a> tags couldn't be set on block elements). 
+							However, using the tests I found out that in this case you can't have other <a> tags inside the <div> - probably it's some kind of limitation of current web browsers or engines.
+							That's the reason we must strip the <a> tags.
+							*/
+							echo preg_replace('/<a href=\"(.*?)\">(.*?)<\/a>/', "\\2", $item['content']);
+						else 
+							echo $item['content']; ?></div>
                         <?php endif; ?>
 
                         <?php if ($item['link'] && $settings['link'] && (!$settings['overlay_link']) ) : ?>

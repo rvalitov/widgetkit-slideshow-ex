@@ -7,6 +7,7 @@
                 <li><a href="">{{'Media' | trans}}</a></li>
                 <li><a href="">{{'Content' | trans}}</a></li>
                 <li><a href="">{{'General' | trans}}</a></li>
+				<li><a href="">{{'About' | trans}}</a></li>
             </ul>
         </div>
 
@@ -214,7 +215,7 @@
                             <label><input type="checkbox" ng-model="widget.data['overlay_background']"> {{'Show panel background' | trans}}</label>
                         </p>
 						<p class="uk-form-controls-condensed" ng-if="widget.data.overlay != 'none'">
-                            <label><input type="checkbox" ng-model="widget.data['overlay_link']"> {{'Add link to overlay' | trans}}<span  data-uk-tooltip title="Makes the whole overlay clickable. Probably you will want to activate this feature both with 'Add link to image' option (see above) to make the whole area of the slide clickable. <h4>Warning!</h4> This feature works only if you don't have links ('a' tags) inside your overlay. Such links can get there from the content you display in the overlay. There is a small possibility that you may even experience incorrect rendering issues if you activate this feature with links inside the overlay."><i class="uk-icon uk-icon-warning uk-margin-small-left" style="color:#ffb105"></i></span></label>
+                            <label><input type="checkbox" ng-model="widget.data['overlay_link']"> {{'Add link to overlay' | trans}}<span  data-uk-tooltip title="Makes the whole overlay clickable. Probably you will want to activate this feature both with 'Add link to image' option (see above) to make the whole area of the slide clickable. <strong>Notice:</strong> this feature strips all links ('a' tags) from your overlay, otherwise it can't work properly."><i class="uk-icon uk-icon-question-circle uk-margin-small-left" style="color:#ffb105"></i></span></label>
                         </p>
                     </div>
                 </div>
@@ -333,6 +334,54 @@
                         <input id="wk-class" class="uk-form-width-medium" type="text" ng-model="widget.data['class']">
                     </div>
                 </div>
+
+            </li>
+			<li>
+
+                <h3 class="wk-form-heading">{{'About' | trans}}</h3>
+
+                <table class="uk-table uk-table-striped">
+					<tr>
+						<td>
+							Widget Name
+						</td>
+						<td>
+							SlideshowEx
+						</td>
+					</tr>
+					<tr>
+						<td>
+							Version
+						</td>
+						<td>
+							1.1
+						</td>
+					</tr>
+					<tr>
+						<td>
+							Build Date
+						</td>
+						<td>
+							15.01.2016
+						</td>
+					</tr>
+					<tr>
+						<td>
+							Author
+						</td>
+						<td>
+							<a href="https://valitov.me" target="_blank">Ramil Valitov</a>
+						</td>
+					</tr>
+					<tr>
+						<td>
+							Website
+						</td>
+						<td>
+							<a href="https://github.com/rvalitov/widgetkit-slideshow-ex" target="_blank">https://github.com/rvalitov/widgetkit-slideshow-ex</a>
+						</td>
+					</tr>
+				</table>
 
             </li>
         </ul>
