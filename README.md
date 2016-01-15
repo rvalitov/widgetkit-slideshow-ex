@@ -41,7 +41,7 @@ If you don't activate any of these features, then the SlideshowEx behaves exactl
 
 Options and description:
 * **Add link to image** - if checked, then the whole image will be clickable. This option is available only if the 'Show media' option is checked. If you use an overlay, probably you will want to activate 'Add link to overlay' option (see below) to make the whole area of the slide clickable.
-* **Add link to overlay** - if checked, then the widget makes the whole overlay clickable. This option is available only if the 'Overlay' option is set to anything other than 'None'. Probably you will want to activate this feature both with 'Add link to image' option (see above) to make the whole area of the slide clickable. **Warning!** This feature works only if you don't have links (`<a>` tags) inside your overlay. Such links can get there from the content you display in the overlay. There is a small possibility that you may even experience incorrect rendering issues if you activate this feature with links inside the overlay.
+* **Add link to overlay** - if checked, then the widget makes the whole overlay clickable. This option is available only if the 'Overlay' option is set to anything other than 'None'. Probably you will want to activate this feature both with 'Add link to image' option (see above) to make the whole area of the slide clickable. **Notice:** this feature automatically strips all links (`<a>` tags) from your overlay - it's a required action to avoid a possible collision of `<a>` tags that may happen.
 
 # Authors, Contributors and Acknowledgment
 * This widget is created by [Ramil Valitov](http://www.valitov.me).
