@@ -15,6 +15,8 @@ The new features that the SlideshowEx has and that are not available in the orig
 * **Clickable image** - a link can be attached to the slide's image (media), [read more](https://github.com/rvalitov/widgetkit-slideshow-ex/wiki/How-to-make-the-whole-slide-clickable).
 * **Clickable overlay** - a link can be attached to whole overlay, [read more](https://github.com/rvalitov/widgetkit-slideshow-ex/wiki/How-to-make-the-whole-slide-clickable).
 * **Clickable slide** - mixing two features 'Clickable image' and 'Clickable overlay' allows to make the whole slide clickable, [read more](https://github.com/rvalitov/widgetkit-slideshow-ex/wiki/How-to-make-the-whole-slide-clickable).
+* **Tooltips for all options** - it's much easier to use the widget, because tooltips are available for all settings.
+* **Update notifications** - you will be notified if new versions of the widget are available.
 
 # Supported platforms
 * The code is based on Widgetkit 2.5.2 (identical to 2.5.3), however it should work with any Widgetkit 2.4.x and later.
