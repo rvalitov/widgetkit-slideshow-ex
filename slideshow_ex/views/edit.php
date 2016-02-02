@@ -1,3 +1,13 @@
+<?php
+/*
+Custom Slideshow widget for Widgetkit 2.
+Author: Ramil Valitov
+Contacts: ramilvalitov@gmail.com
+Web: http://www.valitov.me/
+Git: https://github.com/rvalitov/widgetkit-slideshow-ex
+*/
+?>
+
 <div class="uk-grid uk-grid-divider uk-form uk-form-horizontal" data-uk-grid-margin>
     <div class="uk-width-medium-1-4">
 
@@ -20,7 +30,7 @@
                 <h3 class="wk-form-heading">{{'Navigation' | trans}}</h3>
 
                 <div class="uk-form-row">
-                    <label class="uk-form-label" for="wk-nav">{{'Navigation' | trans}}</label>
+                    <span class="uk-form-label" for="wk-nav">{{'Navigation' | trans}}<span  data-uk-tooltip style="margin-top: 5px;" title="Select the navigation for your Slideshow."><i class="uk-icon uk-icon-question-circle uk-margin-small-left" style="color:#ffb105"></i></span></span>
                     <div class="uk-form-controls">
                         <select id="wk-nav" class="uk-form-width-medium" ng-model="widget.data['nav']">
                             <option value="none">{{'None' | trans}}</option>
@@ -42,19 +52,19 @@
                             </label>
                         </p>
                         <p class="uk-form-controls-condensed" ng-if="widget.data.nav == 'thumbnails'">
-                            <label><input class="uk-form-width-mini" type="text" ng-model="widget.data['thumbnail_width']"> {{'Width (px)' | trans}}</label>
+                            <span><input class="uk-form-width-mini" type="text" ng-model="widget.data['thumbnail_width']"> {{'Width (px)' | trans}}<span  data-uk-tooltip style="margin-top: 5px;" title="Width of the thumbnails in pixels."><i class="uk-icon uk-icon-question-circle uk-margin-small-left" style="color:#ffb105"></i></span></span>
                         </p>
                         <p class="uk-form-controls-condensed" ng-if="widget.data.nav == 'thumbnails'">
-                            <label><input class="uk-form-width-mini" type="text" ng-model="widget.data['thumbnail_height']"> {{'Height (px)' | trans}}</label>
+                            <span><input class="uk-form-width-mini" type="text" ng-model="widget.data['thumbnail_height']"> {{'Height (px)' | trans}}<span  data-uk-tooltip style="margin-top: 5px;" title="Height of the thumbnails in pixels."><i class="uk-icon uk-icon-question-circle uk-margin-small-left" style="color:#ffb105"></i></span></span>
                         </p>
                         <p class="uk-form-controls-condensed" ng-if="widget.data.nav == 'thumbnails'">
-                            <label><input type="checkbox" ng-model="widget.data['thumbnail_alt']"> {{'Use second image as thumbnail.' | trans}}</label>
+                            <span><input type="checkbox" ng-model="widget.data['thumbnail_alt']"> {{'Use second image as thumbnail.' | trans}}<span  data-uk-tooltip style="margin-top: 5px;" title="If checked then the second image will be used as a thumbnail. The second image is defined in the <strong>Content</strong> interface, you should use <strong>Custom</strong> as a content source to access this feature."><i class="uk-icon uk-icon-question-circle uk-margin-small-left" style="color:#ffb105"></i></span></span>
                         </p>
                     </div>
                 </div>
 
                 <div class="uk-form-row">
-                    <label class="uk-form-label" for="wk-slidenav">{{'Slidenav' | trans}}</label>
+                    <span class="uk-form-label" for="wk-slidenav">{{'Slidenav' | trans}}<span  data-uk-tooltip style="margin-top: 5px;" title="Enables/disables the slide navigation control (left and right arrows)."><i class="uk-icon uk-icon-question-circle uk-margin-small-left" style="color:#ffb105"></i></span></span>
                     <div class="uk-form-controls">
                         <select id="wk-slidenav" class="uk-form-width-medium" ng-model="widget.data['slidenav']">
                             <option value="none">{{'None' | trans}}</option>
@@ -77,7 +87,7 @@
                 <h3 class="wk-form-heading">{{'Animations' | trans}}</h3>
 
                 <div class="uk-form-row">
-                    <label class="uk-form-label" for="wk-animation">{{'Animation' | trans}}</label>
+                    <span class="uk-form-label" for="wk-animation">{{'Animation' | trans}}<span  data-uk-tooltip style="margin-top: 5px;" title="Select the animation that is used for displaying the Slideshow items."><i class="uk-icon uk-icon-question-circle uk-margin-small-left" style="color:#ffb105"></i></span></span>
                     <div class="uk-form-controls">
                         <select id="wk-animation" class="uk-form-width-medium" ng-model="widget.data['animation']">
                             <option value="fade">{{'Fade' | trans}}</option>
@@ -94,20 +104,20 @@
                             <option value="random-fx">{{'Random Fx' | trans}}</option>
                         </select>
                         <p class="uk-form-controls-condensed" ng-if="(['slice-up', 'slice-down', 'slice-up-down', 'fold', 'puzzle', 'boxes', 'boxes-reverse', 'random-fx'].indexOf(widget.data.animation) > -1)">
-                            <label><input class="uk-form-width-mini" type="text" ng-model="widget.data['slices']"> {{'Slices' | trans}}</label>
+                            <span><input class="uk-form-width-mini" type="text" ng-model="widget.data['slices']"> {{'Slices' | trans}}<span  data-uk-tooltip style="margin-top: 5px;" title="Number of slices used in the animation."><i class="uk-icon uk-icon-question-circle uk-margin-small-left" style="color:#ffb105"></i></span></span>
                         </p>
                     </div>
                 </div>
 
                 <div class="uk-form-row">
-                    <label class="uk-form-label" for="wk-duration">{{'Duration (ms)' | trans}}</label>
+                    <span class="uk-form-label" for="wk-duration">{{'Duration (ms)' | trans}}<span  data-uk-tooltip style="margin-top: 5px;" title="Duration of the animation."><i class="uk-icon uk-icon-question-circle uk-margin-small-left" style="color:#ffb105"></i></span></span>
                     <div class="uk-form-controls">
                         <input id="wk-duration" class="uk-form-width-medium" type="text" ng-model="widget.data['duration']">
                     </div>
                 </div>
 
                 <div class="uk-form-row">
-                    <span class="uk-form-label">{{'Autoplay' | trans}}</span>
+                    <span class="uk-form-label">{{'Autoplay' | trans}}<span  data-uk-tooltip style="margin-top: 5px;" title="The autoplay feature automatically switches the slideshow items."><i class="uk-icon uk-icon-question-circle uk-margin-small-left" style="color:#ffb105"></i></span></span>
                     <div class="uk-form-controls uk-form-controls-text">
                         <label><input type="checkbox" ng-model="widget.data['autoplay']"> {{'Enable autoplay' | trans}}</label>
                         <p class="uk-form-controls-condensed" ng-if="widget.data.autoplay">
@@ -120,7 +130,7 @@
                 </div>
 
                 <div class="uk-form-row">
-                    <span class="uk-form-label">Kenburns</span>
+                    <span class="uk-form-label">Kenburns<span  data-uk-tooltip style="margin-top: 5px;" title="The Ken Burns effect is a type of panning and zooming effect that generates a video animation to still photographs by slowly zooming in on subjects of interest and panning from one subject to another inside the photo."><i class="uk-icon uk-icon-question-circle uk-margin-small-left" style="color:#ffb105"></i></span></span>
                     <div class="uk-form-controls uk-form-controls-text">
                         <label><input type="checkbox" ng-model="widget.data['kenburns']"> {{'Enable Kenburns effect on the image' | trans}}</label>
                         <p class="uk-form-controls-condensed" ng-if="widget.data.kenburns">
@@ -149,14 +159,14 @@
                 <h3 class="wk-form-heading">{{'Height' | trans}}</h3>
 
                 <div class="uk-form-row">
-                    <span class="uk-form-label">{{'Fullscreen' | trans}}</span>
+                    <span class="uk-form-label">{{'Fullscreen' | trans}}<span  data-uk-tooltip style="margin-top: 5px;" title="Extend the Slideshow to full viewport height."><i class="uk-icon uk-icon-question-circle uk-margin-small-left" style="color:#ffb105"></i></span></span>
                     <div class="uk-form-controls uk-form-controls-text">
                         <label><input type="checkbox" ng-model="widget.data['fullscreen']"> {{'Extend to full viewport height' | trans}}</label>
                     </div>
                 </div>
 
                 <div class="uk-form-row">
-                    <label class="uk-form-label" for="wk-min-height">{{'Min. Height (px)' | trans}}</label>
+                    <span class="uk-form-label" for="wk-min-height">{{'Min. Height (px)' | trans}}<span  data-uk-tooltip style="margin-top: 5px;" title="Defines the minimal height of the Slideshow."><i class="uk-icon uk-icon-question-circle uk-margin-small-left" style="color:#ffb105"></i></span></span>
                     <div class="uk-form-controls">
                         <input id="wk-min-height" class="uk-form-width-medium" type="text" ng-model="widget.data['min_height']">
                     </div>
@@ -168,14 +178,14 @@
                 <h3 class="wk-form-heading">{{'Media' | trans}}</h3>
 
                 <div class="uk-form-row">
-                    <span class="uk-form-label">{{'Display' | trans}}</span>
+                    <span class="uk-form-label">{{'Display' | trans}}<span  data-uk-tooltip style="margin-top: 5px;" title="Display the image."><i class="uk-icon uk-icon-question-circle uk-margin-small-left" style="color:#ffb105"></i></span></span>
                     <div class="uk-form-controls uk-form-controls-text">
                         <label><input type="checkbox" ng-model="widget.data['media']"> {{'Show media' | trans}}</label>
                     </div>
                 </div>
 
                 <div class="uk-form-row">
-                    <label class="uk-form-label">{{'Image' | trans}}</label>
+                    <span class="uk-form-label">{{'Image' | trans}}<span  data-uk-tooltip style="margin-top: 5px;" title="Set the width and height of the image in pixels. Use 'auto' for auto size."><i class="uk-icon uk-icon-question-circle uk-margin-small-left" style="color:#ffb105"></i></span></span>
                     <div class="uk-form-controls">
                         <label><input class="uk-form-width-small" type="text" ng-model="widget.data['image_width']"> {{'Width (px)' | trans}}</label>
                         <p class="uk-form-controls-condensed">
@@ -185,16 +195,16 @@
                 </div>
 
 				<div class="uk-form-row" ng-if="widget.data.media">
-                    <span class="uk-form-label">{{'Link' | trans}}</span>
+                    <span class="uk-form-label">{{'Link' | trans}}<span  data-uk-tooltip title="Makes the whole image clickable. If you use an overlay, probably you will want to activate 'Add link to overlay' option (see below) to make the whole area of the slide clickable."><i class="uk-icon uk-icon-question-circle uk-margin-small-left" style="color:#ffb105"></i></span></span>
                     <div class="uk-form-controls uk-form-controls-text">
-                        <label><input type="checkbox" ng-model="widget.data['image_link']"> {{'Add link to image' | trans}}<span  data-uk-tooltip title="Makes the whole image clickable. If you use an overlay, probably you will want to activate 'Add link to overlay' option (see below) to make the whole area of the slide clickable."><i class="uk-icon uk-icon-question-circle uk-margin-small-left" style="color:#ffb105"></i></span></label>
+                        <label><input type="checkbox" ng-model="widget.data['image_link']"> {{'Add link to image' | trans}}</label>
                     </div>
                 </div>
 				
                 <h3 class="wk-form-heading">{{'Overlay' | trans}}</h3>
 
                 <div class="uk-form-row">
-                <label class="uk-form-label" for="wk-overlay">{{'Overlay' | trans}}</label>
+                <span class="uk-form-label" for="wk-overlay">{{'Overlay' | trans}}<span  data-uk-tooltip style="margin-top: 5px;" title="Define what will be displayed inside the overlay or hide the overlay."><i class="uk-icon uk-icon-question-circle uk-margin-small-left" style="color:#ffb105"></i></span></span>
                     <div class="uk-form-controls">
                         <select id="wk-overlay" class="uk-form-width-medium" ng-model="widget.data['overlay']">
                             <option value="none">{{'None' | trans}}</option>
@@ -209,13 +219,13 @@
                             <select class="uk-form-width-small" ng-model="widget.data['overlay_animation']">
                                 <option value="fade">{{'Fade' | trans}}</option>
                                 <option value="slide">{{'Slide' | trans}}</option>
-                            </select> {{'Animation' | trans}}
+                            </select> {{'Animation' | trans}}<span  data-uk-tooltip style="margin-top: 5px;" title="The animation that will be applied to the overlay when being displayed on hover."><i class="uk-icon uk-icon-question-circle uk-margin-small-left" style="color:#ffb105"></i></span>
                         </p>
                         <p class="uk-form-controls-condensed" ng-if="widget.data.overlay != 'none'">
-                            <label><input type="checkbox" ng-model="widget.data['overlay_background']"> {{'Show panel background' | trans}}</label>
+                            <span><input type="checkbox" ng-model="widget.data['overlay_background']"> {{'Show panel background' | trans}}<span  data-uk-tooltip style="margin-top: 5px;" title="A background (usually dark) is added to the overlay."><i class="uk-icon uk-icon-question-circle uk-margin-small-left" style="color:#ffb105"></i></span></span>
                         </p>
 						<p class="uk-form-controls-condensed" ng-if="widget.data.overlay != 'none'">
-                            <label><input type="checkbox" ng-model="widget.data['overlay_link']"> {{'Add link to overlay' | trans}}<span  data-uk-tooltip title="Makes the whole overlay clickable. Probably you will want to activate this feature both with 'Add link to image' option (see above) to make the whole area of the slide clickable. <strong>Notice:</strong> this feature strips all links ('a' tags) from your overlay, otherwise it can't work properly."><i class="uk-icon uk-icon-question-circle uk-margin-small-left" style="color:#ffb105"></i></span></label>
+                            <span><input type="checkbox" ng-model="widget.data['overlay_link']"> {{'Add link to overlay' | trans}}<span  data-uk-tooltip title="Makes the whole overlay clickable. Probably you will want to activate this feature both with 'Add link to image' option (see above) to make the whole area of the slide clickable. <strong>Notice:</strong> this feature strips all links ('a' tags) from your overlay, otherwise it can't work properly."><i class="uk-icon uk-icon-question-circle uk-margin-small-left" style="color:#ffb105"></i></span></span>
                         </p>
                     </div>
                 </div>
@@ -226,7 +236,7 @@
                 <h3 class="wk-form-heading">{{'Text' | trans}}</h3>
 
                 <div class="uk-form-row">
-                    <span class="uk-form-label">{{'Display' | trans}}</span>
+                    <span class="uk-form-label">{{'Display' | trans}}<span  data-uk-tooltip style="margin-top: 5px;" title="Show or hide title and content."><i class="uk-icon uk-icon-question-circle uk-margin-small-left" style="color:#ffb105"></i></span></span>
                     <div class="uk-form-controls uk-form-controls-text">
                         <p class="uk-form-controls-condensed">
                             <label><input type="checkbox" ng-model="widget.data['title']"> {{'Show title' | trans}}</label>
@@ -238,7 +248,7 @@
                 </div>
 
                 <div class="uk-form-row">
-                    <label class="uk-form-label" for="wk-title-size">{{'Title Size' | trans}}</label>
+                    <span class="uk-form-label" for="wk-title-size">{{'Title Size' | trans}}<span  data-uk-tooltip style="margin-top: 5px;" title="Define the font size of the title."><i class="uk-icon uk-icon-question-circle uk-margin-small-left" style="color:#ffb105"></i></span></span>
                     <div class="uk-form-controls">
                         <select id="wk-title-size" class="uk-form-width-medium" ng-model="widget.data['title_size']">
                             <option value="h1">H1</option>
@@ -251,7 +261,7 @@
                 </div>
 
                 <div class="uk-form-row">
-                    <label class="uk-form-label" for="wk-content-size">{{'Content Size' | trans}}</label>
+                    <span class="uk-form-label" for="wk-content-size">{{'Content Size' | trans}}<span  data-uk-tooltip style="margin-top: 5px;" title="Define the font size of the content."><i class="uk-icon uk-icon-question-circle uk-margin-small-left" style="color:#ffb105"></i></span></span>
                     <div class="uk-form-controls">
                         <select id="wk-content-size" class="uk-form-width-medium" ng-model="widget.data['content_size']">
                             <option value="">{{'Default' | trans}}</option>
@@ -266,14 +276,14 @@
                 <h3 class="wk-form-heading">{{'Link' | trans}}</h3>
 
                 <div class="uk-form-row">
-                    <span class="uk-form-label">{{'Display' | trans}}</span>
+                    <span class="uk-form-label">{{'Display' | trans}}<span  data-uk-tooltip style="margin-top: 5px;" title="Display the Read More link. The link URL is added to each item in the Content Manager."><i class="uk-icon uk-icon-question-circle uk-margin-small-left" style="color:#ffb105"></i></span></span>
                     <div class="uk-form-controls uk-form-controls-text">
-                        <label><input type="checkbox" ng-model="widget.data['link']"> {{'Show link' | trans}}</label>
+                        <span><input type="checkbox" ng-model="widget.data['link']"> {{'Show link' | trans}}</span>
                     </div>
                 </div>
 
                 <div class="uk-form-row">
-                    <label class="uk-form-label" for="wk-link-style">{{'Style' | trans}}</label>
+                    <span class="uk-form-label" for="wk-link-style">{{'Style' | trans}}<span  data-uk-tooltip style="margin-top: 5px;" title="Set the style of the Read More link."><i class="uk-icon uk-icon-question-circle uk-margin-small-left" style="color:#ffb105"></i></span></span>
                     <div class="uk-form-controls">
                         <select id="wk-link-style" class="uk-form-width-medium" ng-model="widget.data['link_style']">
                             <option value="text">{{'Text' | trans}}</option>
@@ -287,7 +297,7 @@
                 </div>
 
                 <div class="uk-form-row">
-                    <label class="uk-form-label" for="wk-link-text">{{'Text' | trans}}</label>
+                    <span class="uk-form-label" for="wk-link-text">{{'Text' | trans}}<span  data-uk-tooltip style="margin-top: 5px;" title="Define the link text."><i class="uk-icon uk-icon-question-circle uk-margin-small-left" style="color:#ffb105"></i></span></span>
                     <div class="uk-form-controls">
                         <input id="wk-link-text" class="uk-form-width-medium" type="text" ng-model="widget.data['link_text']">
                     </div>
@@ -296,14 +306,14 @@
                 <h3 class="wk-form-heading">{{'Badge' | trans}}</h3>
 
                 <div class="uk-form-row">
-                    <span class="uk-form-label">{{'Display' | trans}}</span>
+                    <span class="uk-form-label">{{'Display' | trans}}<span  data-uk-tooltip style="margin-top: 5px;" title="Show or hide the badge which is displayed over the content."><i class="uk-icon uk-icon-question-circle uk-margin-small-left" style="color:#ffb105"></i></span></span>
                     <div class="uk-form-controls uk-form-controls-text">
                         <label><input type="checkbox" ng-model="widget.data['badge']"> {{'Show badge' | trans}}</label>
                     </div>
                 </div>
 
                 <div class="uk-form-row">
-                    <label class="uk-form-label" for="wk-badge-style">{{'Style' | trans}}</label>
+                    <span class="uk-form-label" for="wk-badge-style">{{'Style' | trans}}<span  data-uk-tooltip style="margin-top: 5px;" title="Defines the style of the badge."><i class="uk-icon uk-icon-question-circle uk-margin-small-left" style="color:#ffb105"></i></span></span>
                     <div class="uk-form-controls">
                         <select id="wk-badge-style" class="uk-form-width-medium" ng-model="widget.data['badge_style']">
                             <option value="badge">{{'Default' | trans}}</option>
@@ -322,14 +332,14 @@
                 <h3 class="wk-form-heading">{{'General' | trans}}</h3>
 
                 <div class="uk-form-row">
-                    <span class="uk-form-label">{{'Link Target' | trans}}</span>
+                    <span class="uk-form-label">{{'Link Target' | trans}}<span data-uk-tooltip title="Enables/disables opening all links in a new window of the browser. Otherwise, they open in the same window."><i class="uk-icon uk-icon-question-circle uk-margin-small-left" style="color:#ffb105"></i></span></span>
                     <div class="uk-form-controls uk-form-controls-text">
                         <label><input type="checkbox" ng-model="widget.data['link_target']"> {{'Open all links in a new window' | trans}}</label>
                     </div>
                 </div>
 
                 <div class="uk-form-row">
-                    <label class="uk-form-label" for="wk-class">{{'HTML Class' | trans}}</label>
+                    <span class="uk-form-label" for="wk-class">{{'HTML Class' | trans}}<span data-uk-tooltip title="Adds a custom CSS class to the widget. You can specify several classes using space between them."><i class="uk-icon uk-icon-question-circle uk-margin-small-left" style="color:#ffb105"></i></span></span>
                     <div class="uk-form-controls">
                         <input id="wk-class" class="uk-form-width-medium" type="text" ng-model="widget.data['class']">
                     </div>
@@ -340,48 +350,64 @@
 
                 <h3 class="wk-form-heading">{{'About' | trans}}</h3>
 
-                <table class="uk-table uk-table-striped">
-					<tr>
-						<td>
-							Widget Name
-						</td>
-						<td>
-							SlideshowEx
-						</td>
-					</tr>
-					<tr>
-						<td>
-							Version
-						</td>
-						<td>
-							1.1
-						</td>
-					</tr>
-					<tr>
-						<td>
-							Build Date
-						</td>
-						<td>
-							15.01.2016
-						</td>
-					</tr>
-					<tr>
-						<td>
-							Author
-						</td>
-						<td>
-							<a href="https://valitov.me" target="_blank">Ramil Valitov</a>
-						</td>
-					</tr>
-					<tr>
-						<td>
-							Website
-						</td>
-						<td>
-							<a href="https://github.com/rvalitov/widgetkit-slideshow-ex" target="_blank">https://github.com/rvalitov/widgetkit-slideshow-ex</a>
-						</td>
-					</tr>
-				</table>
+				<div class="uk-grid">
+					<div class="uk-text-center uk-width-medium-1-3" id="logo-widgetkit-slideshow-ex">
+					</div>
+					<div class="uk-width-medium-2-3">
+						<table class="uk-table uk-table-striped">
+							<tr>
+								<td>
+									Widget Name
+								</td>
+								<td id="name-widgetkit-slideshow-ex">
+									N/A
+								</td>
+							</tr>
+							<tr>
+								<td>
+									Version
+								</td>
+								<td id="version-widgetkit-slideshow-ex">
+									N/A
+								</td>
+							</tr>
+							<tr>
+								<td>
+									Build Date
+								</td>
+								<td id="build-widgetkit-slideshow-ex">
+									N/A
+								</td>
+							</tr>
+							<tr>
+								<td>
+									Author<span data-uk-tooltip title="See the complete information about contributors and acknowledgement on the website below."><i class="uk-icon uk-icon-question-circle uk-margin-small-left" style="color:#ffb105"></i></span>
+								</td>
+								<td>
+									<a href="https://valitov.me" target="_blank">Ramil Valitov<i class="uk-icon uk-icon-external-link uk-margin-small-left"></i></a>
+								</td>
+							</tr>
+							<tr>
+								<td>
+									Website
+								</td>
+								<td id="website-widgetkit-slideshow-ex">
+									N/A
+								</td>
+							</tr>
+							<tr>
+								<td>
+									Wiki and Manuals
+								</td>
+								<td id="wiki-widgetkit-slideshow-ex">
+									N/A
+								</td>
+							</tr>
+						</table>
+						<div id="update-widgetkit-slideshow-ex" class="uk-text-center">
+						</div>
+					</div>
+				<div>
 
             </li>
         </ul>
