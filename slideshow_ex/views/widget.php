@@ -115,6 +115,10 @@ if ($settings['slidenav'] == 'default') {
 // Custom Class
 $class = $settings['class'] ? ' class="' . $settings['class'] . '"' : '';
 
+if ($settings['lightbox']=='lightbox')
+	//Creating unique $groupcode variable to be used as a lightbox group id.
+	$groupcode=uniqid('wk-slideshow-lightbox');
+
 ?>
 
 <div<?php echo $class; ?> data-uk-slideshow="<?php echo $options; ?>">
@@ -158,24 +162,31 @@ $class = $settings['class'] ? ' class="' . $settings['class'] . '"' : '';
 
                 <?php if ($item['media'] && $settings['media']) : ?>
 
-					<?php if ( ($settings['image_link']) && ($item['link']) ): ?>
-					<a href="<?php echo $item->escape('link'); ?>">
 					<?php echo $media; ?>
-					</a>
-					<?php
-					else:
-						echo $media;
-					endif;
-					?>
 
                     <?php if ($item['media.poster']) : ?>
                     <div class="uk-cover-background uk-position-cover uk-hidden-notouch" style="background-image: url(<?php echo $item['media.poster'] ?>);"></div>
                     <?php endif ?>
 
+					<?php
+					$the_link='';
+					if ($settings['lightbox']=='lightbox'){
+						$the_link.='data-uk-lightbox="{group:\''.$groupcode.'\'}" href="'.$item->get('media').'"';
+					}
+					else
+						if ($item['link']) {
+							$the_link.='href="'.$item->escape('link').'"'.$link_target;
+							if ( ($settings['link']) && ($link_style) && (!$settings['slide_link']) )
+								$the_link.=' class="slideshow-ex ' . $link_style . '"';
+						}
+					
+					if ( ($settings['slide_link']) && (strlen($the_link)>0) ){
+						$the_link.=' class="slideshow-ex uk-position-cover"';
+						echo '<a '.$the_link.'>';
+					}
+					?>
+					
                     <?php if ($settings['overlay'] != 'none' && (($item['title'] && $settings['title']) || ($item['content'] && $settings['content']) || ($item['link'] && ($settings['link'] || $settings['overlay_link'])))) : ?>
-					<?php if ($item['link'] && $settings['overlay_link']):?>
-					<a href="<?php echo $item->escape('link'); ?>" class="slideshow-ex">
-					<?php endif; ?>
                     <div class="<?php echo $overlay; ?>">
 
                         <?php if (in_array($settings['overlay'], array('center', 'middle-left'))) : ?>
@@ -196,7 +207,7 @@ $class = $settings['class'] ? ' class="' . $settings['class'] . '"' : '';
 
                         <?php if ($item['content'] && $settings['content']) : ?>
                         <div class="<?php echo $content_size; ?> uk-margin"><?php
-						if ($item['link'] && $settings['overlay_link'])
+						if ($item['link'] && $settings['slide_link'])
 							/*
 							We must strip <a> tags from the text, otherwise such tags will corrupt everything and break our approach.
 							Our approach is to use the HTML5 <a> tag on the whole <div> - this is allowed in HTML5 (before that <a> tags couldn't be set on block elements). 
@@ -208,8 +219,8 @@ $class = $settings['class'] ? ' class="' . $settings['class'] . '"' : '';
 							echo $item['content']; ?></div>
                         <?php endif; ?>
 
-                        <?php if ($item['link'] && $settings['link'] && (!$settings['overlay_link']) ) : ?>
-                        <p><a<?php if($link_style) echo ' class="' . $link_style . '"'; ?> href="<?php echo $item->escape('link'); ?>"<?php echo $link_target; ?>><?php echo $app['translator']->trans($settings['link_text']); ?></a></p>
+                        <?php if ($item['link'] && $settings['link'] && (!$settings['slide_link']) ) : ?>
+                        <p><a <?php echo $the_link; ?>><?php echo $app['translator']->trans($settings['link_text']); ?></a></p>
                         <?php endif; ?>
 
                         <?php if (in_array($settings['overlay'], array('center', 'middle-left'))) : ?>
@@ -217,10 +228,11 @@ $class = $settings['class'] ? ' class="' . $settings['class'] . '"' : '';
                         <?php endif; ?>
 
                     </div>
-					<?php if ($item['link'] && $settings['overlay_link']):?>
+                    <?php endif; ?>
+					
+					<?php if ( ($settings['slide_link']) && (strlen($the_link)>0) ):?>
 					</a>
 					<?php endif; ?>
-                    <?php endif; ?>
 
                 <?php elseif(($item['title'] && $settings['title']) || ($item['content'] && $settings['content'])) : ?>
 
@@ -239,10 +251,17 @@ $class = $settings['class'] ? ' class="' . $settings['class'] . '"' : '';
                     <?php if ($item['content'] && $settings['content']) : ?>
                     <div class="uk-margin"><?php echo $item['content']; ?></div>
                     <?php endif; ?>
-
-                    <?php if ($item['link'] && $settings['link']) : ?>
-                    <p><a<?php if($link_style) echo ' class="' . $link_style . '"'; ?> href="<?php echo $item->escape('link'); ?>"<?php echo $link_target; ?>><?php echo $app['translator']->trans($settings['link_text']); ?></a></p>
-                    <?php endif; ?>
+					<?php
+					if ($item['link'] && $settings['link']){
+						$the_link='';
+						if ($settings['slide_link'])
+							$the_link.=' class="slideshow-ex uk-position-cover"';
+						else
+							if ($link_style)
+								$the_link.=' class="slideshow-ex ' . $link_style . '"';
+						echo '<p><a '.$the_link.' href="'.$item->escape('link').'"'.$link_target.'>'.(($settings['slide_link'])? '' : $app['translator']->trans($settings['link_text'])).'</a></p>';
+					}
+					?>
 
                 <?php endif; ?>
 

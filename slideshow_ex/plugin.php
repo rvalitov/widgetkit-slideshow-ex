@@ -59,8 +59,8 @@ return array(
             'badge'              => true,
             'badge_style'        => 'badge',
 			
-			'image_link'		=> false,
-			'overlay_link'		=> false,
+			'slide_link'		=> false,
+			'lightbox'			=> '',
 
             'link_target'        => false,
             'class'              => ''

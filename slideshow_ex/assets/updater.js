@@ -7,9 +7,9 @@ jQuery(document).ready(function($){
 	/* Start of widget specific settings */
 	var distr_name='widgetkit-slideshow-ex';
 	var widget_name='SlideshowEx';
-	var widget_version='v1.2';
+	var widget_version='v1.2.5';
 	/*CAUTION: the month is zero-based*/
-	var widget_date=printNiceDate(new Date(2016,01,02));
+	var widget_date=printNiceDate(new Date(2016,01,03));
 	var widget_logo='https://raw.githubusercontent.com/wiki/rvalitov/widgetkit-slideshow-ex/images/logo.jpg';
 	var widget_wiki=git_url+distr_name+'/wiki';
 	var widget_website=git_url+distr_name;

@@ -84,6 +84,13 @@ Git: https://github.com/rvalitov/widgetkit-slideshow-ex
                     </div>
                 </div>
 
+				<div class="uk-form-row">
+                    <span class="uk-form-label">{{'Clickable Slide' | trans}}<span  data-uk-tooltip style="margin-top: 5px;" title="If checked, then the whole slide becomes clickable."><i class="uk-icon uk-icon-question-circle uk-margin-small-left" style="color:#ffb105"></i></span></span>
+                    <div class="uk-form-controls uk-form-controls-text">
+                        <label><input type="checkbox" ng-model="widget.data['slide_link']"> {{'Make the whole slide clickable.' | trans}}</label>
+                    </div>
+                </div>
+				
                 <h3 class="wk-form-heading">{{'Animations' | trans}}</h3>
 
                 <div class="uk-form-row">
@@ -194,10 +201,13 @@ Git: https://github.com/rvalitov/widgetkit-slideshow-ex
                     </div>
                 </div>
 
-				<div class="uk-form-row" ng-if="widget.data.media">
-                    <span class="uk-form-label">{{'Link' | trans}}<span  data-uk-tooltip title="Makes the whole image clickable. If you use an overlay, probably you will want to activate 'Add link to overlay' option (see below) to make the whole area of the slide clickable."><i class="uk-icon uk-icon-question-circle uk-margin-small-left" style="color:#ffb105"></i></span></span>
-                    <div class="uk-form-controls uk-form-controls-text">
-                        <label><input type="checkbox" ng-model="widget.data['image_link']"> {{'Add link to image' | trans}}</label>
+				<div class="uk-form-row">
+                    <span class="uk-form-label" for="wk-media-lightbox">{{'Lightbox Type' | trans}}<span  data-uk-tooltip style="margin-top: 5px;" title="Enables/disables the lightbox mode."><i class="uk-icon uk-icon-question-circle uk-margin-small-left" style="color:#ffb105"></i></span></span>
+                    <div class="uk-form-controls">
+                        <select id="wk-media-lightbox" class="uk-form-width-medium" ng-model="widget.data['lightbox']">
+                            <option value="">{{'None' | trans}}</option>
+                            <option value="lightbox">{{'Lightbox' | trans}}</option>
+                        </select>
                     </div>
                 </div>
 				
@@ -223,9 +233,6 @@ Git: https://github.com/rvalitov/widgetkit-slideshow-ex
                         </p>
                         <p class="uk-form-controls-condensed" ng-if="widget.data.overlay != 'none'">
                             <span><input type="checkbox" ng-model="widget.data['overlay_background']"> {{'Show panel background' | trans}}<span  data-uk-tooltip style="margin-top: 5px;" title="A background (usually dark) is added to the overlay."><i class="uk-icon uk-icon-question-circle uk-margin-small-left" style="color:#ffb105"></i></span></span>
-                        </p>
-						<p class="uk-form-controls-condensed" ng-if="widget.data.overlay != 'none'">
-                            <span><input type="checkbox" ng-model="widget.data['overlay_link']"> {{'Add link to overlay' | trans}}<span  data-uk-tooltip title="Makes the whole overlay clickable. Probably you will want to activate this feature both with 'Add link to image' option (see above) to make the whole area of the slide clickable. <strong>Notice:</strong> this feature strips all links ('a' tags) from your overlay, otherwise it can't work properly."><i class="uk-icon uk-icon-question-circle uk-margin-small-left" style="color:#ffb105"></i></span></span>
                         </p>
                     </div>
                 </div>
@@ -275,6 +282,10 @@ Git: https://github.com/rvalitov/widgetkit-slideshow-ex
 
                 <h3 class="wk-form-heading">{{'Link' | trans}}</h3>
 
+				<div class="uk-panel uk-panel-box uk-alert uk-alert-warning" ng-if="widget.data['lightbox'] != ''">
+					<p class="uk-text-center"><i class="uk-icon uk-icon-warning uk-margin-small-right"></i>The settings in this "Link" section are ignored, because you have activated the "Lightbox" mode in the "Media" tab.</p>
+				</div>
+				
                 <div class="uk-form-row">
                     <span class="uk-form-label">{{'Display' | trans}}<span  data-uk-tooltip style="margin-top: 5px;" title="Display the Read More link. The link URL is added to each item in the Content Manager."><i class="uk-icon uk-icon-question-circle uk-margin-small-left" style="color:#ffb105"></i></span></span>
                     <div class="uk-form-controls uk-form-controls-text">
@@ -296,6 +307,10 @@ Git: https://github.com/rvalitov/widgetkit-slideshow-ex
                     </div>
                 </div>
 
+				<div class="uk-panel uk-panel-box uk-alert uk-alert-warning" ng-if="widget.data['slide_link'] && widget.data['lightbox'] == ''">
+					<p class="uk-text-center"><i class="uk-icon uk-icon-warning uk-margin-small-right"></i>The "Text" setting below is ignored, because you have made the whole slide clickable in the "Slideshow" tab.</p>
+				</div>
+				
                 <div class="uk-form-row">
                     <span class="uk-form-label" for="wk-link-text">{{'Text' | trans}}<span  data-uk-tooltip style="margin-top: 5px;" title="Define the link text."><i class="uk-icon uk-icon-question-circle uk-margin-small-left" style="color:#ffb105"></i></span></span>
                     <div class="uk-form-controls">

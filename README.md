@@ -12,9 +12,8 @@
 ### Unique Features
 The new features that the SlideshowEx has and that are not available in the original Slideshow widget:
 
-* **Clickable image** - a link can be attached to the slide's image (media), [read more](https://github.com/rvalitov/widgetkit-slideshow-ex/wiki/How-to-make-the-whole-slide-clickable).
-* **Clickable overlay** - a link can be attached to whole overlay, [read more](https://github.com/rvalitov/widgetkit-slideshow-ex/wiki/How-to-make-the-whole-slide-clickable).
-* **Clickable slide** - mixing two features 'Clickable image' and 'Clickable overlay' allows to make the whole slide clickable, [read more](https://github.com/rvalitov/widgetkit-slideshow-ex/wiki/How-to-make-the-whole-slide-clickable).
+* **Clickable slide** - allows to make the whole slide clickable, [read more](https://github.com/rvalitov/widgetkit-slideshow-ex/wiki/How-to-make-the-whole-slide-clickable).
+* **Lightbox mode** - allows to open content in a lightbox, [read more](https://github.com/rvalitov/widgetkit-slideshow-ex/wiki/How-to-use-a-lightbox).
 * **Tooltips for all options** - it's much easier to use the widget, because tooltips are available for all settings.
 * **Update notifications** - you will be notified if new versions of the widget are available.
 
@@ -44,5 +43,6 @@ Having trouble with SlideshowEx Widget? May be something has already been descri
 Being a free project which I do in my spare time, I hope you understand that I can't offer 24/7 support:) You may contact me via e-mail ramilvalitov@gmail.com, I will try to answer to all of them (if such messages imply an answer), however, not immediately, it may take a few days or a week... so, just be patient. 
 
 Note, that I can answer only to questions and problems directly related to this widget. Answers to basic questions about the widgetkit nature and simple help about how to use widgets in general or how to use Joomla you can find in appropriate forums:
+
 * [Joomla](http://forum.joomla.org/)
 * [Widgetkits](https://yootheme.com/support)
