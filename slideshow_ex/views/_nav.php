@@ -1,4 +1,16 @@
 <?php
+/*
+SlideshowEx plugin for Widgetkit 2.
+Author: Ramil Valitov
+E-mail: ramilvalitov@gmail.com
+Web: http://www.valitov.me/
+Git: https://github.com/rvalitov/widgetkit-slideshow-ex
+*/
+
+require_once(__DIR__.'/WidgetkitExPlugin.php');
+use WidgetkitEx\MapEx\WidgetkitExPlugin;
+
+$cssprefix=WidgetkitExPlugin::getCSSPrefix($app);
 
 // Nav
 $nav = '';
@@ -6,18 +18,18 @@ $nav_item = '';
 
 switch ($settings['nav']) {
     case 'dotnav':
-        $nav  = 'uk-dotnav';
-        $nav .= ($settings['nav_overlay'] && $settings['nav_contrast']) ? ' uk-dotnav-contrast' : '';
+        $nav  = '{wk}-dotnav';
+        $nav .= ($settings['nav_overlay'] && $settings['nav_contrast']) ? ' {wk}-dotnav-contrast' : '';
         break;
     case 'thumbnails':
-        $nav = 'uk-thumbnav';
-        $nav_item = ($settings['nav_align'] == 'justify') ? ' class="uk-width-1-' . count($items) . '"' : '';
+        $nav = '{wk}-thumbnav';
+        $nav_item = ($settings['nav_align'] == 'justify') ? ' class="{wk}-width-1-' . count($items) . '"' : '';
         break;
 }
 
 // Alignment
-$nav .= ($settings['nav_align'] != 'justify') ? ' uk-flex-' . $settings['nav_align'] : '';
-
+$nav .= ($settings['nav_align'] != 'justify') ? ' {wk}-flex-' . $settings['nav_align'] : '';
+$nav = str_replace('{wk}', $cssprefix, $nav);
 ?>
 
 <ul class="<?php echo $nav; ?>">
@@ -54,6 +66,6 @@ $nav .= ($settings['nav_align'] != 'justify') ? ' uk-flex-' . $settings['nav_ali
         }
 
     ?>
-    <li<?php echo $nav_item; ?> data-uk-slideshow-item="<?php echo $i; ?>"><a href="#"><?php echo ($thumbnail) ? $thumbnail : $item['title']; ?></a></li>
+    <li<?php echo $nav_item; ?> data-<?php echo $cssprefix?>-slideshow-item="<?php echo $i; ?>"><a href="#"><?php echo ($thumbnail) ? $thumbnail : $item['title']; ?></a></li>
 <?php endforeach; ?>
 </ul>

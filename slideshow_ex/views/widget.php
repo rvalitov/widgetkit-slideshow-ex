@@ -1,4 +1,16 @@
 <?php
+/*
+SlideshowEx plugin for Widgetkit 2.
+Author: Ramil Valitov
+E-mail: ramilvalitov@gmail.com
+Web: http://www.valitov.me/
+Git: https://github.com/rvalitov/widgetkit-slideshow-ex
+*/
+
+require_once(__DIR__.'/WidgetkitExPlugin.php');
+use WidgetkitEx\MapEx\WidgetkitExPlugin;
+
+$cssprefix=WidgetkitExPlugin::getCSSPrefix($app);
 
 // JS Options
 $options = array();
@@ -16,69 +28,73 @@ if ($settings['kenburns'] && $settings['kenburns_duration']) {
 $options = '{'.implode(',', array_filter($options)).'}';
 
 // Overlay
-$overlay = 'uk-overlay-panel';
+$overlay = '{wk}-overlay-panel';
 switch ($settings['overlay']) {
     case 'center':
-        $overlay .= ' uk-flex uk-flex-center uk-flex-middle uk-text-center';
+        $overlay .= ' {wk}-flex {wk}-flex-center {wk}-flex-middle {wk}-text-center';
         break;
     case 'middle-left':
-        $overlay .= ' uk-flex uk-flex-middle';
+        $overlay .= ' {wk}-flex {wk}-flex-middle';
         break;
     default:
-        $overlay .= ' uk-overlay-' . $settings['overlay'];
+        $overlay .= ' {wk}-overlay-' . $settings['overlay'];
 }
 
-$overlay .= $settings['overlay_background'] ? ' uk-overlay-background' : '';
+$overlay .= $settings['overlay_background'] ? ' {wk}-overlay-background' : '';
 
 if ($settings['overlay_animation'] == 'slide' && !in_array($settings['overlay'], array('center', 'middle-left'))) {
-    $overlay .= ' uk-overlay-slide-' . $settings['overlay'];
+    $overlay .= ' {wk}-overlay-slide-' . $settings['overlay'];
 } else {
-    $overlay .= ' uk-overlay-fade';
+    $overlay .= ' {wk}-overlay-fade';
 }
+$overlay = str_replace('{wk}', $cssprefix, $overlay);
 
 // Title Size
 switch ($settings['title_size']) {
     case 'large':
-        $title_size = 'uk-heading-large';
+        $title_size = '{wk}-heading-large';
         break;
     default:
-        $title_size = 'uk-' . $settings['title_size'];
+        $title_size = '{wk}-' . $settings['title_size'];
 }
+$title_size = str_replace('{wk}', $cssprefix, $title_size);
 
 // Content Size
 switch ($settings['content_size']) {
     case 'large':
-        $content_size = 'uk-text-large';
+        $content_size = '{wk}-text-large';
         break;
     case 'h2':
     case 'h3':
     case 'h4':
-        $content_size = 'uk-' . $settings['content_size'];
+        $content_size = '{wk}-' . $settings['content_size'];
         break;
     default:
         $content_size = '';
 }
+$content_size = str_replace('{wk}', $cssprefix, $content_size);
 
 // Link Style
 switch ($settings['link_style']) {
     case 'button':
-        $link_style = 'uk-button';
+        $link_style = '{wk}-button';
         break;
     case 'primary':
-        $link_style = 'uk-button uk-button-primary';
+        $link_style = '{wk}-button {wk}-button-primary';
         break;
     case 'button-large':
-        $link_style = 'uk-button uk-button-large';
+        $link_style = '{wk}-button {wk}-button-large';
         break;
     case 'primary-large':
-        $link_style = 'uk-button uk-button-large uk-button-primary';
+        $link_style = '{wk}-button {wk}-button-large {wk}-button-primary';
         break;
     case 'button-link':
-        $link_style = 'uk-button uk-button-link';
+        $link_style = '{wk}-button {wk}-button-link';
         break;
     default:
         $link_style = '';
 }
+$link_style = str_replace('{wk}', $cssprefix, $link_style);
 
 // Link Target
 $link_target = ($settings['link_target']) ? ' target="_blank"' : '';
@@ -86,31 +102,33 @@ $link_target = ($settings['link_target']) ? ' target="_blank"' : '';
 // Badge Style
 switch ($settings['badge_style']) {
     case 'badge':
-        $badge_style = 'uk-badge';
+        $badge_style = '{wk}-badge';
         break;
     case 'success':
-        $badge_style = 'uk-badge uk-badge-success';
+        $badge_style = '{wk}-badge {wk}-badge-success';
         break;
     case 'warning':
-        $badge_style = 'uk-badge uk-badge-warning';
+        $badge_style = '{wk}-badge {wk}-badge-warning';
         break;
     case 'danger':
-        $badge_style = 'uk-badge uk-badge-danger';
+        $badge_style = '{wk}-badge {wk}-badge-danger';
         break;
     case 'text-muted':
-        $badge_style  = 'uk-text-muted';
+        $badge_style  = '{wk}-text-muted';
         break;
     case 'text-primary':
-        $badge_style  = 'uk-text-primary';
+        $badge_style  = '{wk}-text-primary';
         break;
 }
+$badge_style = str_replace('{wk}', $cssprefix, $badge_style);
 
 // Position Relative
 if ($settings['slidenav'] == 'default') {
-    $position_relative = 'uk-slidenav-position';
+    $position_relative = '{wk}-slidenav-position';
 } else {
-    $position_relative = 'uk-position-relative';
+    $position_relative = '{wk}-position-relative';
 }
+$position_relative = str_replace('{wk}', $cssprefix, $position_relative);
 
 // Custom Class
 $class = $settings['class'] ? ' class="' . $settings['class'] . '"' : '';
@@ -121,11 +139,11 @@ if ($settings['lightbox']=='lightbox')
 
 ?>
 
-<div<?php echo $class; ?> data-uk-slideshow="<?php echo $options; ?>">
+<div<?php echo $class; ?> data-<?php echo $cssprefix?>-slideshow="<?php echo $options; ?>">
 
     <div class="<?php echo $position_relative; ?>">
 
-        <ul class="uk-slideshow<?php if ($settings['fullscreen']) echo ' uk-slideshow-fullscreen'; ?><?php if ($settings['overlay'] != 'none') echo ' uk-overlay-active'; ?>">
+        <ul class="<?php echo $cssprefix?>-slideshow<?php if ($settings['fullscreen']) echo ' '. $cssprefix. '-slideshow-fullscreen'; ?><?php if ($settings['overlay'] != 'none') echo ' '. $cssprefix. '-overlay-active'; ?>">
         <?php foreach ($items as $item) :
 
                 // Media Type
@@ -143,8 +161,8 @@ if ($settings['lightbox']=='lightbox')
                     $attrs['autoplay'] = true;
                     $attrs['loop']     = true;
                     $attrs['muted']    = true;
-                    $attrs['class']   .= 'uk-cover-object uk-position-absolute';
-                    $attrs['class']   .= ($item['media.poster']) ? ' uk-hidden-touch' : '';
+                    $attrs['class']   .= '{wk}-cover-object {wk}-position-absolute';
+                    $attrs['class']   .= ($item['media.poster']) ? ' {wk}-hidden-touch' : '';
                 }
 
                 $attrs['width']  = ($width) ? $width : '';
@@ -165,13 +183,13 @@ if ($settings['lightbox']=='lightbox')
 					<?php echo $media; ?>
 
                     <?php if ($item['media.poster']) : ?>
-                    <div class="uk-cover-background uk-position-cover uk-hidden-notouch" style="background-image: url(<?php echo $item['media.poster'] ?>);"></div>
+                    <div class="<?php echo $cssprefix?>-cover-background <?php echo $cssprefix?>-position-cover <?php echo $cssprefix?>-hidden-notouch" style="background-image: url(<?php echo $item['media.poster'] ?>);"></div>
                     <?php endif ?>
 
 					<?php
 					$the_link='';
 					if ($settings['lightbox']=='lightbox'){
-						$the_link.='data-uk-lightbox="{group:\''.$groupcode.'\'}" href="'.$item->get('media').'"';
+						$the_link.='data-{wk}-lightbox="{group:\''.$groupcode.'\'}" href="'.$item->get('media').'"';
 					}
 					else
 						if ($item['link']) {
@@ -181,7 +199,8 @@ if ($settings['lightbox']=='lightbox')
 						}
 					
 					if ( ($settings['slide_link']) && (strlen($the_link)>0) ){
-						$the_link.=' class="slideshow-ex uk-position-cover"';
+						$the_link.=' class="slideshow-ex {wk}-position-cover"';
+						$the_link = str_replace('{wk}', $cssprefix, $the_link);
 						echo '<a '.$the_link.'>';
 					}
 					?>
@@ -199,14 +218,14 @@ if ($settings['lightbox']=='lightbox')
                             <?php echo $item['title']; ?>
 
                             <?php if ($item['badge'] && $settings['badge']) : ?>
-                            <span class="uk-margin-small-left <?php echo $badge_style; ?>"><?php echo $item['badge']; ?></span>
+                            <span class="<?php echo $cssprefix?>-margin-small-left <?php echo $badge_style; ?>"><?php echo $item['badge']; ?></span>
                             <?php endif; ?>
 
                         </h3>
                         <?php endif; ?>
 
                         <?php if ($item['content'] && $settings['content']) : ?>
-                        <div class="<?php echo $content_size; ?> uk-margin"><?php
+                        <div class="<?php echo $content_size; ?> <?php echo $cssprefix?>-margin"><?php
 						if ($item['link'] && $settings['slide_link'])
 							/*
 							We must strip <a> tags from the text, otherwise such tags will corrupt everything and break our approach.
@@ -242,23 +261,24 @@ if ($settings['lightbox']=='lightbox')
                         <?php echo $item['title']; ?>
 
                         <?php if ($item['badge'] && $settings['badge']) : ?>
-                        <span class="uk-margin-small-left <?php echo $badge_style; ?>"><?php echo $item['badge']; ?></span>
+                        <span class="<?php echo $cssprefix?>-margin-small-left <?php echo $badge_style; ?>"><?php echo $item['badge']; ?></span>
                         <?php endif; ?>
 
                     </h3>
                     <?php endif; ?>
 
                     <?php if ($item['content'] && $settings['content']) : ?>
-                    <div class="uk-margin"><?php echo $item['content']; ?></div>
+                    <div class="<?php echo $cssprefix?>-margin"><?php echo $item['content']; ?></div>
                     <?php endif; ?>
 					<?php
 					if ($item['link'] && $settings['link']){
 						$the_link='';
 						if ($settings['slide_link'])
-							$the_link.=' class="slideshow-ex uk-position-cover"';
+							$the_link.=' class="slideshow-ex {wk}-position-cover"';
 						else
 							if ($link_style)
 								$the_link.=' class="slideshow-ex ' . $link_style . '"';
+						$the_link = str_replace('{wk}', $cssprefix, $the_link);
 						echo '<p><a '.$the_link.' href="'.$item->escape('link').'"'.$link_target.'>'.(($settings['slide_link'])? '' : $app['translator']->trans($settings['link_text'])).'</a></p>';
 					}
 					?>
@@ -271,19 +291,19 @@ if ($settings['lightbox']=='lightbox')
         </ul>
 
         <?php if (in_array($settings['slidenav'], array('top-left', 'top-right', 'bottom-left', 'bottom-right'))) : ?>
-        <div class="uk-position-<?php echo $settings['slidenav']; ?> uk-margin uk-margin-left uk-margin-right">
-            <div class="uk-grid uk-grid-small">
-                <div><a href="#" class="uk-slidenav <?php if ($settings['nav_contrast']) echo 'uk-slidenav-contrast'; ?> uk-slidenav-previous" data-uk-slideshow-item="previous"></a></div>
-                <div><a href="#" class="uk-slidenav <?php if ($settings['nav_contrast']) echo 'uk-slidenav-contrast'; ?> uk-slidenav-next" data-uk-slideshow-item="next"></a></div>
+        <div class="<?php echo $cssprefix?>-position-<?php echo $settings['slidenav']; ?> <?php echo $cssprefix?>-margin <?php echo $cssprefix?>-margin-left <?php echo $cssprefix?>-margin-right">
+            <div class="<?php echo $cssprefix?>-grid <?php echo $cssprefix?>-grid-small">
+                <div><a href="#" class="<?php echo $cssprefix?>-slidenav <?php if ($settings['nav_contrast']) echo $cssprefix.'-slidenav-contrast'; ?> <?php echo $cssprefix?>-slidenav-previous" data-<?php echo $cssprefix?>-slideshow-item="previous"></a></div>
+                <div><a href="#" class="<?php echo $cssprefix?>-slidenav <?php if ($settings['nav_contrast']) echo $cssprefix.'-slidenav-contrast'; ?> <?php echo $cssprefix?>-slidenav-next" data-<?php echo $cssprefix?>-slideshow-item="next"></a></div>
             </div>
         </div>
         <?php elseif ($settings['slidenav'] == 'default') : ?>
-        <a href="#" class="uk-slidenav <?php if ($settings['nav_contrast']) echo 'uk-slidenav-contrast'; ?> uk-slidenav-previous uk-hidden-touch" data-uk-slideshow-item="previous"></a>
-        <a href="#" class="uk-slidenav <?php if ($settings['nav_contrast']) echo 'uk-slidenav-contrast'; ?> uk-slidenav-next uk-hidden-touch" data-uk-slideshow-item="next"></a>
+        <a href="#" class="<?php echo $cssprefix?>-slidenav <?php if ($settings['nav_contrast']) echo $cssprefix.'-slidenav-contrast'; ?> <?php echo $cssprefix?>-slidenav-previous <?php echo $cssprefix?>-hidden-touch" data-<?php echo $cssprefix?>-slideshow-item="previous"></a>
+        <a href="#" class="<?php echo $cssprefix?>-slidenav <?php if ($settings['nav_contrast']) echo $cssprefix.'-slidenav-contrast'; ?> <?php echo $cssprefix?>-slidenav-next <?php echo $cssprefix?>-hidden-touch" data-<?php echo $cssprefix?>-slideshow-item="next"></a>
         <?php endif ?>
 
         <?php if ($settings['nav_overlay'] && ($settings['nav'] != 'none')) : ?>
-        <div class="uk-overlay-panel uk-overlay-bottom">
+        <div class="<?php echo $cssprefix?>-overlay-panel <?php echo $cssprefix?>-overlay-bottom">
             <?php echo $this->render('plugins/widgets/' . $widget->getConfig('name')  . '/views/_nav.php', compact('items', 'settings')); ?>
         </div>
         <?php endif ?>
@@ -291,7 +311,7 @@ if ($settings['lightbox']=='lightbox')
     </div>
 
     <?php if (!$settings['nav_overlay'] && ($settings['nav'] != 'none')) : ?>
-    <div class="uk-margin">
+    <div class="<?php echo $cssprefix?>-margin">
         <?php echo $this->render('plugins/widgets/' . $widget->getConfig('name')  . '/views/_nav.php', compact('items', 'settings')); ?>
     </div>
     <?php endif ?>
