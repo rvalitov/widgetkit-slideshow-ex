@@ -1,4 +1,4 @@
-![Version](https://img.shields.io/badge/Release-v1.2.5-green.svg?style=flat) ![Widgetkit](https://img.shields.io/badge/Widgetkit-v2.4.x+-green.svg?style=flat) ![Joomla](https://img.shields.io/badge/Joomla!-v3.4.x+-yellow.svg?style=flat) ![Wordpress](https://img.shields.io/badge/Wordpress-v4.4.x+-yellow.svg?style=flat)
+![Version](https://img.shields.io/badge/Release-v1.3.0-green.svg?style=flat) ![Widgetkit](https://img.shields.io/badge/Widgetkit-v2.4.x+-green.svg?style=flat) ![Joomla](https://img.shields.io/badge/Joomla!-v3.4.x+-yellow.svg?style=flat) ![Wordpress](https://img.shields.io/badge/Wordpress-v4.4.x+-yellow.svg?style=flat) ![PHP7](https://img.shields.io/badge/PHP7-compatible-blue.svg?style=flat) ![YoothemePro](https://img.shields.io/badge/YoothemePro-compatible-blue.svg?style=flat)
 
 ![SlideshowEx widget logo](https://raw.githubusercontent.com/wiki/rvalitov/widgetkit-slideshow-ex/images/logo.jpg)
 # Overview
@@ -9,7 +9,9 @@
 * **Responsive** - create responsive slideshow.
 * **Transition effects** - various transition effects, navigations and animation.
 * **Display content on top** - you can display content on top of the slides in an overlay.
+* **Use with your existing data** - you can easily convert your existing Slideshow widgets into SlideshowEx preserving all the data and options.
 * **Backward compatibility** - all other behavior, styling and features of the original [Slideshow widget](http://yootheme.com/demo/widgetkit/joomla/index.php/home/slideshow) are preserved.
+* **Compatible with Yootheme Pro** - you can use MapEx with [Yootheme Pro](https://yootheme.com/pro/). 
 
 ### Unique Features
 The new features that the SlideshowEx has and that are not available in the original Slideshow widget:
@@ -20,10 +22,12 @@ The new features that the SlideshowEx has and that are not available in the orig
 * **Update notifications** - you will be notified if new versions of the widget are available.
 
 # Supported platforms
-* The code is based on Widgetkit 2.5.2 (identical to 2.5.3), however it should work with any Widgetkit 2.4.x and later.
-* Joomla 3.4.x or later required
+* The core code is based on Widgetkit 2.5.3, but it doesn't mean that the widget is outdated, because actually original widgets of Yootheme are rarely modified between Widgetkit versions. This widget should work with any Widgetkit 2.4.x and later (recommended 2.5.0+). Tested with Widgetkit 2.6.x, 2.7.x, 2.8.x, 2.9.x too.
+* PHP5 and PHP7 compatible
+* Joomla 3.4.x or later. Tested on Joomla 3.4.x, 3.5.x, 3.6.x.
+* Wordpress 4.4.x or later
 
-Widget should work with Wordpress 4.4.x (according to feedback from users; I can't test it personally, because I don't have the required subscription).
+**Read full system requirements [here](https://github.com/rvalitov/widgetkit-slideshow-ex/wiki/System-requirements).**
 
 # How to install?
 The installation procedure is described [here](https://github.com/rvalitov/widgetkit-slideshow-ex/wiki/How-to-install).
@@ -36,6 +40,9 @@ Some issues about using the widget are available in the [Wiki area](https://gith
 * The code is based on the original [Slideshow widget](http://yootheme.com/demo/widgetkit/joomla/index.php/home/slideshow) by [Yootheme](http://yootheme.com/).
 * Logo is based on [Tango Icon Library](https://www.iconfinder.com/iconsets/tango-icon-library)
 
+## Disclaimer
+This project is NOT affiliated with, endorsed, or sponsored by the Yootheme. Widgetkit, its name, trademark, and other aspects of the app are trademarked and owned by their respective owners.
+
 # Feedback
 Your feedback is very appreciated. If you want to see new features in this module, please, post your ideas and feature requests in the [issue tracker](https://github.com/rvalitov/widgetkit-slideshow-ex/issues).
 
@@ -46,10 +53,10 @@ You can choose any payment method you prefer:
 
 Your Currency | Payment Method
 ------------ | -------------
-Euro € | [![Card](https://img.shields.io/badge/EURO-Debit/Credit%20Card-6f202b.svg?style=flat)](https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=BJJF3E6DBRYHA) [![PayPal](https://img.shields.io/badge/EURO-PayPal-blue.svg?style=flat)](https://www.paypal.me/valitov/15eur) [![WebMoney](https://img.shields.io/badge/EURO-WebMoney-00484f.svg?style=flat)](https://funding.wmtransfer.com/widgets-euro)
-USD $ | [![Card](https://img.shields.io/badge/USD-Debit/Credit%20Card-6f202b.svg?style=flat)](https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=B8VMNU7SEAU8J) [![PayPal](https://img.shields.io/badge/USD-PayPal-blue.svg?style=flat)](https://www.paypal.me/valitov/15usd) [![WebMoney](https://img.shields.io/badge/USD-WebMoney-00484f.svg?style=flat)](https://funding.wmtransfer.com/widgets-usd)
-Russian Ruble ₽ | [![Card](https://img.shields.io/badge/RUB-Debit/Credit%20Card-6f202b.svg?style=flat)](https://money.yandex.ru/to/410011424143476) [![PayPal](https://img.shields.io/badge/RUB-PayPal-blue.svg?style=flat)](https://www.paypal.me/valitov/150rub) [![WebMoney](https://img.shields.io/badge/RUB-WebMoney-00484f.svg?style=flat)](https://funding.wmtransfer.com/widgets-rub) [![YandexMoney](https://img.shields.io/badge/RUB-YandexMoney-5b0d56.svg?style=flat)](https://money.yandex.ru/to/410011424143476)
-Other | [![Card](https://img.shields.io/badge/OTHER-Debit/Credit%20Card-6f202b.svg?style=flat)](https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=BJJF3E6DBRYHA) [![PayPal](https://img.shields.io/badge/OTHER-PayPal-blue.svg?style=flat)](https://www.paypal.me/valitov) [![WebMoney](https://img.shields.io/badge/OTHER-WebMoney-00484f.svg?style=flat)](https://funding.wmtransfer.com/widgets-euro)
+Euro € | [![Card](https://img.shields.io/badge/EURO-Debit/Credit%20Card-6f202b.svg?style=flat)](https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=BJJF3E6DBRYHA) [![PayPal](https://img.shields.io/badge/EURO-PayPal-blue.svg?style=flat)](https://www.paypal.me/valitov/0eur) 
+USD $ | [![Card](https://img.shields.io/badge/USD-Debit/Credit%20Card-6f202b.svg?style=flat)](https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=B8VMNU7SEAU8J) [![PayPal](https://img.shields.io/badge/USD-PayPal-blue.svg?style=flat)](https://www.paypal.me/valitov/0usd) 
+Russian Ruble ₽ | [![Card](https://img.shields.io/badge/RUB-Debit/Credit%20Card-6f202b.svg?style=flat)](https://money.yandex.ru/to/410011424143476) [![PayPal](https://img.shields.io/badge/RUB-PayPal-blue.svg?style=flat)](https://www.paypal.me/valitov/0rub) [![YandexMoney](https://img.shields.io/badge/RUB-YandexMoney-5b0d56.svg?style=flat)](https://money.yandex.ru/to/410011424143476)
+Other | [![Card](https://img.shields.io/badge/OTHER-Debit/Credit%20Card-6f202b.svg?style=flat)](https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=BJJF3E6DBRYHA) [![PayPal](https://img.shields.io/badge/OTHER-PayPal-blue.svg?style=flat)](https://www.paypal.me/valitov)
 
 # Support or Contact
 Having trouble with SlideshowEx Widget? May be something has already been described in the [Wiki area](https://github.com/rvalitov/widgetkit-slideshow-ex/wiki) or reported in the [issue tracker](https://github.com/rvalitov/widgetkit-slideshow-ex/issues). If you don't find your problem there, then, please, add your issue there. 
