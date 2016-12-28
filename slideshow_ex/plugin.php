@@ -82,8 +82,7 @@ return array(
     'events' => array(
 
         'init.site' => function($event, $app) {
-			$plugin=new WidgetkitExPlugin($app);
-			$uikit=($plugin->getCSSPrefix($app)=='uk') ? 'uikit' : 'uikit2';
+			$uikit=(WidgetkitExPlugin::getCSSPrefix($app)=='uk') ? 'uikit' : 'uikit2';
             $app['scripts']->add('uikit-slideshow', 'vendor/assets/uikit/js/components/slideshow.min.js', array($uikit));
             $app['scripts']->add('uikit-slideshow-fx', 'vendor/assets/uikit/js/components/slideshow-fx.min.js', array($uikit));
 			//Adding private CSS:
