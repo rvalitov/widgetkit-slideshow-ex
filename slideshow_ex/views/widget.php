@@ -8,7 +8,7 @@ Git: https://github.com/rvalitov/widgetkit-slideshow-ex
 */
 
 require_once(__DIR__.'/WidgetkitExPlugin.php');
-use WidgetkitEx\MapEx\WidgetkitExPlugin;
+use WidgetkitEx\SlideshowEx\WidgetkitExPlugin;
 
 $cssprefix=WidgetkitExPlugin::getCSSPrefix($app);
 
