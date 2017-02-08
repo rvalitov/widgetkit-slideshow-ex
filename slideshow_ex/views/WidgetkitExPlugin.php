@@ -853,14 +853,6 @@ EOT;
 </div>
 
 <script>
-	jQuery.validate({
-		form: '#form-{$this->plugin_info['safe_name']}-subscribe',
-		modules : 'html5',
-		errorElementClass: 'uk-form-danger',
-		errorMessageClass: 'uk-text-danger',
-		validateOnBlur : true,
-		scrollToTopOnError : false
-	});
 	jQuery('#form-{$this->plugin_info['safe_name']}-subscribe').formchimp();
 	
 	/*Geolocation if nessesary*/

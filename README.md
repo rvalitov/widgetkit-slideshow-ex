@@ -1,4 +1,4 @@
-![Version](https://img.shields.io/badge/Release-v1.3.3-green.svg?style=flat) ![Widgetkit](https://img.shields.io/badge/Widgetkit-v2.4.x+-green.svg?style=flat) ![Joomla](https://img.shields.io/badge/Joomla!-v3.4.x+-yellow.svg?style=flat) ![Wordpress](https://img.shields.io/badge/Wordpress-v4.4.x+-yellow.svg?style=flat) ![PHP7](https://img.shields.io/badge/PHP7-compatible-blue.svg?style=flat) ![YoothemePro](https://img.shields.io/badge/YoothemePro-compatible-blue.svg?style=flat)
+![Version](https://img.shields.io/badge/Release-v1.3.4-green.svg?style=flat) ![Widgetkit](https://img.shields.io/badge/Widgetkit-v2.4.x+-green.svg?style=flat) ![Joomla](https://img.shields.io/badge/Joomla!-v3.4.x+-yellow.svg?style=flat) ![Wordpress](https://img.shields.io/badge/Wordpress-v4.4.x+-yellow.svg?style=flat) ![PHP7](https://img.shields.io/badge/PHP7-compatible-blue.svg?style=flat) ![YoothemePro](https://img.shields.io/badge/YoothemePro-compatible-blue.svg?style=flat)
 
 ![SlideshowEx widget logo](https://raw.githubusercontent.com/wiki/rvalitov/widgetkit-slideshow-ex/images/logo.jpg)
 # Overview
@@ -11,7 +11,7 @@
 * **Display content on top** - you can display content on top of the slides in an overlay.
 * **Use with your existing data** - you can easily convert your existing Slideshow widgets into SlideshowEx preserving all the data and options.
 * **Backward compatibility** - all other behavior, styling and features of the original [Slideshow widget](http://yootheme.com/demo/widgetkit/joomla/index.php/home/slideshow) are preserved.
-* **Compatible with Yootheme Pro** - you can use MapEx with [Yootheme Pro](https://yootheme.com/pro/). 
+* **Compatible with Yootheme Pro** - you can use this widget with [Yootheme Pro](https://yootheme.com/pro/). 
 
 ### Unique Features
 The new features that the SlideshowEx has and that are not available in the original Slideshow widget:
