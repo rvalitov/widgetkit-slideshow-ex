@@ -16,9 +16,9 @@ return array(
 
     'main' => 'YOOtheme\\Widgetkit\\Widget\\Widget',
 	
-	'plugin_version' => 'v1.3.3',
+	'plugin_version' => 'v1.3.5',
 	
-	'plugin_date' => '19/01/2017',
+	'plugin_date' => '08/02/2017',
 	
 	'plugin_logo' => 'https://raw.githubusercontent.com/wiki/rvalitov/widgetkit-slideshow-ex/images/logo.jpg',
 	
@@ -92,6 +92,8 @@ return array(
         'init.admin' => function($event, $app) {
 			$plugin=new WidgetkitExPlugin($app);
 			$uikit=($plugin->getCSSPrefix($app)=='uk') ? 'uikit' : 'uikit2';
+			//Shared styles for the Ex widgets
+			$app['styles']->add('widget-ex', 'plugins/widgets/slideshow_ex/css/widgetex.css', array('widgetkit-application'));
 			//Adding our own translations:
 			$app['translator']->addResource('plugins/widgets/slideshow_ex/languages/'.$app['locale'].'.json');
 			//Edit template:
