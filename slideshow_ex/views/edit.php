@@ -10,7 +10,7 @@ Git: https://github.com/rvalitov/widgetkit-slideshow-ex
 use WidgetkitEx\SlideshowEx\WidgetkitExPlugin;
 $plugin=new WidgetkitExPlugin($app);
 ?>
-<div class="uk-grid uk-grid-divider uk-form uk-form-horizontal" data-uk-grid-margin>
+<div class="uk-grid uk-grid-divider uk-form uk-form-horizontal uk-slideshowex" data-uk-grid-margin>
     <div class="uk-width-medium-1-4">
 
         <div class="wk-panel-marginless">
