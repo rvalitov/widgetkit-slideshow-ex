@@ -92,8 +92,8 @@ return array(
         'init.admin' => function($event, $app) {
 			$plugin=new WidgetkitExPlugin($app);
 			$uikit=($plugin->getCSSPrefix($app)=='uk') ? 'uikit' : 'uikit2';
-			//Shared styles for the Ex widgets
-			$app['styles']->add('widget-ex', 'plugins/widgets/slideshow_ex/css/widgetex.css', array('widgetkit-application'));
+			//Backend CSS
+			$app['styles']->add('slideshow_ex_edit', 'plugins/widgets/slideshow_ex/css/slideshowex.edit.css', array('widgetkit-application'));
 			//Adding our own translations:
 			$app['translator']->addResource('plugins/widgets/slideshow_ex/languages/'.$app['locale'].'.json');
 			//Edit template:
