@@ -16,7 +16,7 @@ return array(
 
     'main' => 'YOOtheme\\Widgetkit\\Widget\\Widget',
 	
-	'plugin_version' => 'v1.3.6',
+	'plugin_version' => 'v1.3.7',
 	
 	'plugin_date' => '14/03/2017',
 	
