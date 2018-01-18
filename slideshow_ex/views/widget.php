@@ -133,13 +133,32 @@ $position_relative = str_replace('{wk}', $cssprefix, $position_relative);
 // Custom Class
 $class = $settings['class'] ? ' class="' . $settings['class'] . '"' : '';
 
+$lightbox_class=uniqid('wk-slideshowex');
+
 if ($settings['lightbox']=='lightbox')
 	//Creating unique $groupcode variable to be used as a lightbox group id.
 	$groupcode=uniqid('wk-slideshow-lightbox');
 
 ?>
 
-<div<?php echo $class; ?> data-<?php echo $cssprefix?>-slideshow="<?php echo $options; ?>">
+<?php if ($settings['lightbox']=='lightbox' && $settings['lightbox_arrows']=='always') : ?>
+<style>
+    .<?php echo $lightbox_class;?> .uk-lightbox-content a{
+        display: block;
+    }
+</style>
+<?php endif ?>
+<?php if ($settings['lightbox']=='lightbox' && $settings['lightbox_arrows']=='touch') : ?>
+    <style>
+        @media (pointer:coarse) {
+            .<?php echo $lightbox_class;?> .uk-lightbox-content a {
+                display: block;
+            }
+        }
+    </style>
+<?php endif ?>
+
+<div<?php echo $class; ?> data-<?php echo $cssprefix?>-slideshow="<?php echo $options; ?>" id="<?php echo $id;?>">
 
     <div class="<?php echo $position_relative; ?>">
 
@@ -189,7 +208,12 @@ if ($settings['lightbox']=='lightbox')
 					<?php
 					$the_link='';
 					if ($settings['lightbox']=='lightbox'){
-						$the_link.='data-{wk}-lightbox="{group:\''.$groupcode.'\'}" href="'.$item->get('media').'"';
+                        $button_class=", button: ";
+					    if ($settings['lightbox']=='lightbox' && $settings['lightbox_arrows']=='')
+					        $button_class.="'uk-hidden-touch'";
+					    else
+                            $button_class.="''";
+						$the_link.='data-{wk}-lightboxex="{group:\''.$groupcode.'\', class: \''.$lightbox_class.'\''.$button_class.'}" href="'.$item->get('media').'"';
 					}
 					else
 						if ($item['link']) {

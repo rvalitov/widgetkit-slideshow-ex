@@ -212,6 +212,17 @@ $plugin=new WidgetkitExPlugin($app);
                         </select>
                     </div>
                 </div>
+
+                <div class="uk-form-row" ng-if="widget.data.lightbox === 'lightbox'">
+                    <span class="uk-form-label" for="wk-media-lightbox-arrows">{{'Lightbox Arrows' | trans}}<span data-uk-tooltip="'cls':'uk-slideshowex-tooltip'" title="{{ 'Visibility of left/right arrows.' | trans}}"><i></i></span></span>
+                    <div class="uk-form-controls">
+                        <select id="wk-media-lightbox-arrows" class="uk-form-width-medium" ng-model="widget.data['lightbox_arrows']">
+                            <option value="">{{'Visible on mouse hover' | trans}}</option>
+                            <option value="always">{{'Always visible' | trans}}</option>
+                            <option value="touch">{{'Visible for touch devices' | trans}}</option>
+                        </select>
+                    </div>
+                </div>
 				
                 <h3 class="wk-form-heading">{{'Overlay' | trans}}</h3>
 

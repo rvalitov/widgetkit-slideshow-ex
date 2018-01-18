@@ -1,4 +1,11 @@
-/*! UIkit 2.27.4 | http://www.getuikit.com | (c) 2014 YOOtheme | MIT License */
+/*
+Lightbox Ex plugin for UIKit. Based on UIkit 2.27.4
+Author: Ramil Valitov
+E-mail: ramilvalitov@gmail.com
+Web: http://www.valitov.me/
+Git: https://github.com/rvalitov/widgetkit-slideshow-ex
+*/
+
 (function(addon) {
 
     var component;
@@ -8,7 +15,7 @@
     }
 
     if (typeof define == 'function' && define.amd) { // AMD
-        define('uikit-lightbox', ['uikit'], function(){
+        define('uikit-lightbox-ex', ['uikit'], function(){
             return component || addon(UIkit2);
         });
     }
@@ -19,12 +26,14 @@
 
     var modal, cache = {};
 
-    UI.component('lightbox', {
+    UI.component('lightboxex', {
 
         defaults: {
             allowfullscreen : true,
             duration        : 400,
             group           : false,
+            class           : '',
+            button          : 'uk-hidden-touch',
             keyboard        : true
         },
 
@@ -33,33 +42,33 @@
 
         boot: function() {
 
-            UI.$html.on('click', '[data-uk-lightbox]', function(e){
+            UI.$html.on('click', '[data-uk-lightboxex]', function(e){
 
                 e.preventDefault();
 
                 var link = UI.$(this);
 
-                if (!link.data('lightbox')) {
+                if (!link.data('lightboxex')) {
 
-                    UI.lightbox(link, UI.Utils.options(link.attr('data-uk-lightbox')));
+                    UI.lightboxex(link, UI.Utils.options(link.attr('data-uk-lightboxex')));
                 }
 
-                link.data('lightbox').show(link);
+                link.data('lightboxex').show(link);
             });
 
             // keyboard navigation
             UI.$doc.on('keyup', function(e) {
 
-                if (modal && modal.is(':visible') && modal.lightbox.options.keyboard) {
+                if (modal && modal.is(':visible') && modal.lightboxex.options.keyboard) {
 
                     e.preventDefault();
 
                     switch(e.keyCode) {
                         case 37:
-                            modal.lightbox.previous();
+                            modal.lightboxex.previous();
                             break;
                         case 39:
-                            modal.lightbox.next();
+                            modal.lightboxex.next();
                             break;
                     }
                 }
@@ -75,7 +84,7 @@
 
             if (this.element && this.element.length) {
 
-                var domSiblings  = this.options.group ? UI.$('[data-uk-lightbox*="'+this.options.group+'"]') : this.element;
+                var domSiblings  = this.options.group ? UI.$('[data-uk-lightboxex*="'+this.options.group+'"]') : this.element;
 
                 domSiblings.each(function() {
 
@@ -84,7 +93,7 @@
                     siblings.push({
                         source : ele.attr('href'),
                         title  : ele.attr('data-title') || ele.attr('title'),
-                        type   : ele.attr("data-lightbox-type") || 'auto',
+                        type   : ele.attr("data-lightboxex-type") || 'auto',
                         link   : ele
                     });
                 });
@@ -96,7 +105,7 @@
                 this.siblings = this.options.group;
             }
 
-            this.trigger('lightbox-init', [this]);
+            this.trigger('lightboxex-init', [this]);
         },
 
         show: function(index) {
@@ -132,7 +141,7 @@
             item   = this.siblings[index];
 
             data = {
-                lightbox : $this,
+                lightboxex : $this,
                 source   : item.source,
                 type     : item.type,
                 index    : index,
@@ -172,7 +181,7 @@
                 $this.fitSize(data);
             });
 
-            $this.trigger('showitem.uk.lightbox', [data]);
+            $this.trigger('showitem.uk.lightboxex', [data]);
         },
 
         fitSize: function() {
@@ -190,8 +199,8 @@
 
                 content = [
                     content,
-                    '<a href="#" class="uk-slidenav uk-slidenav-contrast uk-slidenav-previous uk-hidden-touch" data-lightbox-previous></a>',
-                    '<a href="#" class="uk-slidenav uk-slidenav-contrast uk-slidenav-next uk-hidden-touch" data-lightbox-next></a>'
+                    '<a href="#" class="uk-slidenav uk-slidenav-contrast uk-slidenav-previous '+this.options.button+'" data-lightbox-previous></a>',
+                    '<a href="#" class="uk-slidenav uk-slidenav-contrast uk-slidenav-next '+this.options.button+'" data-lightbox-next></a>'
                 ].join('');
             }
 
@@ -272,11 +281,11 @@
 
     // Plugins
 
-    UI.plugin('lightbox', 'image', {
+    UI.plugin('lightboxex', 'image', {
 
-        init: function(lightbox) {
+        init: function(lightboxex) {
 
-            lightbox.on('showitem.uk.lightbox', function(e, data){
+            lightboxex.on('showitem.uk.lightboxex', function(e, data){
 
                 if (data.type == 'image' || data.source && data.source.match(/\.(jpg|jpeg|png|gif|svg)$/i)) {
 
@@ -316,20 +325,20 @@
         }
     });
 
-    UI.plugin('lightbox', 'youtube', {
+    UI.plugin('lightboxex', 'youtube', {
 
-        init: function(lightbox) {
+        init: function(lightboxex) {
 
             var youtubeRegExp = /(\/\/.*?youtube\.[a-z]+)\/watch\?v=([^&]+)&?(.*)/,
                 youtubeRegExpShort = /youtu\.be\/(.*)/;
 
 
-            lightbox.on('showitem.uk.lightbox', function(e, data){
+            lightboxex.on('showitem.uk.lightboxex', function(e, data){
 
                 var id, matches, resolve = function(id, width, height) {
 
                     data.meta = {
-                        content: '<iframe src="//www.youtube.com/embed/'+id+'" width="'+width+'" height="'+height+'" style="max-width:100%;"'+(modal.lightbox.options.allowfullscreen?' allowfullscreen':'')+'></iframe>',
+                        content: '<iframe src="//www.youtube.com/embed/'+id+'" width="'+width+'" height="'+height+'" style="max-width:100%;"'+(modal.lightboxex.options.allowfullscreen?' allowfullscreen':'')+'></iframe>',
                         width: width,
                         height: height
                     };
@@ -387,19 +396,19 @@
     });
 
 
-    UI.plugin('lightbox', 'vimeo', {
+    UI.plugin('lightboxex', 'vimeo', {
 
-        init: function(lightbox) {
+        init: function(lightboxex) {
 
             var regex = /(\/\/.*?)vimeo\.[a-z]+\/([0-9]+).*?/, matches;
 
 
-            lightbox.on('showitem.uk.lightbox', function(e, data){
+            lightboxex.on('showitem.uk.lightboxex', function(e, data){
 
                 var id, resolve = function(id, width, height) {
 
                     data.meta = {
-                        content: '<iframe src="//player.vimeo.com/video/'+id+'" width="'+width+'" height="'+height+'" style="width:100%;box-sizing:border-box;"'+(modal.lightbox.options.allowfullscreen?' allowfullscreen':'')+'></iframe>',
+                        content: '<iframe src="//player.vimeo.com/video/'+id+'" width="'+width+'" height="'+height+'" style="width:100%;box-sizing:border-box;"'+(modal.lightboxex.options.allowfullscreen?' allowfullscreen':'')+'></iframe>',
                         width: width,
                         height: height
                     };
@@ -436,11 +445,11 @@
         }
     });
 
-    UI.plugin('lightbox', 'video', {
+    UI.plugin('lightboxex', 'video', {
 
-        init: function(lightbox) {
+        init: function(lightboxex) {
 
-            lightbox.on('showitem.uk.lightbox', function(e, data){
+            lightboxex.on('showitem.uk.lightboxex', function(e, data){
 
 
                 var resolve = function(source, width, height) {
@@ -482,16 +491,16 @@
     });
 
 
-    UI.plugin('lightbox', 'iframe', {
+    UI.plugin('lightboxex', 'iframe', {
 
-        init: function (lightbox) {
+        init: function (lightboxex) {
 
-            lightbox.on('showitem.uk.lightbox', function (e, data) {
+            lightboxex.on('showitem.uk.lightboxex', function (e, data) {
 
                 var resolve = function (source, width, height) {
 
                     data.meta = {
-                        content: '<iframe class="uk-responsive-width" src="' + source + '" width="' + width + '" height="' + height + '"'+(modal.lightbox.options.allowfullscreen?' allowfullscreen':'')+'></iframe>',
+                        content: '<iframe class="uk-responsive-width" src="' + source + '" width="' + width + '" height="' + height + '"'+(modal.lightboxex.options.allowfullscreen?' allowfullscreen':'')+'></iframe>',
                         width: width,
                         height: height
                     };
@@ -502,23 +511,23 @@
                 };
 
                 if (data.type === 'iframe' || data.source.match(/\.(html|php)$/)) {
-                    resolve(data.source, (lightbox.options.width || 800), (lightbox.options.height || 600));
+                    resolve(data.source, (lightboxex.options.width || 800), (lightboxex.options.height || 600));
                 }
             });
 
         }
     });
 
-    function getModal(lightbox) {
+    function getModal(lightboxex) {
 
         if (modal) {
-            modal.lightbox = lightbox;
+            modal.lightboxex = lightboxex;
             return modal;
         }
 
-        // init lightbox container
+        // init lightboxex container
         modal = UI.$([
-            '<div class="uk-modal">',
+            '<div class="uk-modal uk-modal-lightboxex ' + lightboxex.options.class + '">',
             '<div class="uk-modal-dialog uk-modal-dialog-lightbox uk-slidenav-position" style="margin-left:auto;margin-right:auto;width:200px;height:200px;top:'+Math.abs(window.innerHeight/2 - 200)+'px;">',
             '<a href="#" class="uk-modal-close uk-close uk-close-alt"></a>',
             '<div class="uk-lightbox-content"></div>',
@@ -535,10 +544,10 @@
 
         // next / previous
         modal.on('swipeRight swipeLeft', function(e) {
-            modal.lightbox[e.type=='swipeLeft' ? 'next':'previous']();
+            modal.lightboxex[e.type=='swipeLeft' ? 'next':'previous']();
         }).on('click', '[data-lightbox-previous], [data-lightbox-next]', function(e){
             e.preventDefault();
-            modal.lightbox[UI.$(this).is('[data-lightbox-next]') ? 'next':'previous']();
+            modal.lightboxex[UI.$(this).is('[data-lightbox-next]') ? 'next':'previous']();
         });
 
         // destroy content on modal hide
@@ -551,19 +560,19 @@
         UI.$win.on('load resize orientationchange', UI.Utils.debounce(function(e){
 
             if (resizeCache.w !== window.innerWidth && modal.is(':visible') && !UI.Utils.isFullscreen()) {
-                modal.lightbox.fitSize();
+                modal.lightboxex.fitSize();
             }
 
             resizeCache = {w: window.innerWidth, h:window.innerHeight};
 
         }, 100));
 
-        modal.lightbox = lightbox;
+        modal.lightboxex = lightboxex;
 
         return modal;
     }
 
-    UI.lightbox.create = function(items, options) {
+    UI.lightboxex.create = function(items, options) {
 
         if (!items) return;
 
@@ -579,10 +588,10 @@
             }, (typeof(item) == 'string' ? {'source': item} : item)));
         });
 
-        o = UI.lightbox(UI.$.extend({}, options, {'group':group}));
+        o = UI.lightboxex(UI.$.extend({}, options, {'group':group}));
 
         return o;
     };
 
-    return UI.lightbox;
+    return UI.lightboxex;
 });

@@ -72,6 +72,7 @@ return array(
 			
 			'slide_link'		=> false,
 			'lightbox'			=> '',
+            'lightbox_arrows'   => '',
 
             'link_target'        => false,
             'class'              => ''
@@ -84,6 +85,7 @@ return array(
         'init.site' => function($event, $app) {
 			$uikit=(WidgetkitExPlugin::getCSSPrefix($app)=='uk') ? 'uikit' : 'uikit2';
             $app['scripts']->add('uikit-slideshow', 'vendor/assets/uikit/js/components/slideshow.min.js', array($uikit));
+            $app['scripts']->add('uikit-lightbox-ex', 'plugins/widgets/slideshow_ex/assets/lightbox-ex.js', array('widgetkit-ex'));
             $app['scripts']->add('uikit-slideshow-fx', 'vendor/assets/uikit/js/components/slideshow-fx.min.js', array($uikit));
 			//Adding private CSS:
 			$app['styles']->add('ram-slideshow-ex', 'plugins/widgets/slideshow_ex/css/slideshow-ex.css', array('widgetkit-application'));
