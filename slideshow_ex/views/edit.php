@@ -223,6 +223,41 @@ $plugin=new WidgetkitExPlugin($app);
                         </select>
                     </div>
                 </div>
+
+                <div class="uk-form-row" ng-if="widget.data.lightbox === 'lightbox'">
+                    <span class="uk-form-label" for="wk-media-lightbox-arrows">{{'Lightbox Arrows' | trans}}<span data-uk-tooltip="'cls':'uk-slideshowex-tooltip'" title="{{ 'Visibility of left/right arrows.' | trans}}"><i></i></span></span>
+                    <div class="uk-form-controls">
+                        <select id="wk-media-lightbox-arrows" class="uk-form-width-medium" ng-model="widget.data['lightbox_arrows']">
+                            <option value="">{{'Visible on mouse hover' | trans}}</option>
+                            <option value="always">{{'Always visible' | trans}}</option>
+                            <option value="touch">{{'Visible for touch devices' | trans}}</option>
+                        </select>
+                    </div>
+                </div>
+
+                <div class="uk-form-row" ng-if="widget.data.lightbox === 'lightbox'">
+                    <span class="uk-form-label">{{'Clickable areas' | trans}}</span>
+                    <div class="uk-form-controls uk-form-controls-text">
+                        <label><input type="checkbox" ng-model="widget.data['lightbox_areas']"> {{'Make areas clickable instead of just arrows for next/previous buttons.' | trans}}</label>
+                    </div>
+                </div>
+
+                <div class="uk-form-row" ng-if="(widget.data.lightbox === 'lightbox') && (widget.data.lightbox_areas)">
+                    <span class="uk-form-label" for="wk-media-lightbox_area_size">{{'Buttons area size' | trans}}<span data-uk-tooltip="'cls':'uk-slideshowex-tooltip'" title="{{ 'Size of the area for next and previous buttons.' | trans}}"><i></i></span></span>
+                    <div class="uk-form-controls">
+                        <select id="wk-media-lightbox_area_size" class="uk-form-width-medium" ng-model="widget.data['lightbox_area_size']">
+                            <option value="10%">10%</option>
+                            <option value="15%">15%</option>
+                            <option value="20%">20%</option>
+                            <option value="25%">25%</option>
+                            <option value="30%">30%</option>
+                            <option value="35%">35%</option>
+                            <option value="40%">40%</option>
+                            <option value="45%">45%</option>
+                            <option value="50%">50%</option>
+                        </select>
+                    </div>
+                </div>
 				
                 <h3 class="wk-form-heading">{{'Overlay' | trans}}</h3>
 

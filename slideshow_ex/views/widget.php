@@ -148,7 +148,11 @@ if ($settings['lightbox']=='lightbox')
     }
 </style>
 <?php endif ?>
-<?php if ($settings['lightbox']=='lightbox' && $settings['lightbox_arrows']=='touch') : ?>
+<?php
+/*
+ * Support for CSS touch media query: https://caniuse.com/#feat=css-media-interaction
+ */
+if ($settings['lightbox']=='lightbox' && $settings['lightbox_arrows']=='touch') : ?>
     <style>
         @media (pointer:coarse) {
             .<?php echo $lightbox_class;?> .uk-lightbox-content a {
@@ -158,7 +162,37 @@ if ($settings['lightbox']=='lightbox')
     </style>
 <?php endif ?>
 
-<div<?php echo $class; ?> data-<?php echo $cssprefix?>-slideshow="<?php echo $options; ?>" id="<?php echo $id;?>">
+<?php if ($settings['lightbox']=='lightbox' && $settings['lightbox_areas']) : ?>
+    <style>
+        .<?php echo $lightbox_class;?> .uk-lightbox-content a {
+            display: block;
+            height: 100%;
+            top: 0;
+            margin-top: 0;
+            width: <?php echo $settings['lightbox_area_size'];?>;
+        }
+        .<?php echo $lightbox_class;?> .uk-slidenav-previous {
+            left: 0 !important;
+        }
+        .<?php echo $lightbox_class;?> .uk-slidenav-next {
+            right: 0 !important;
+        }
+        .<?php echo $lightbox_class;?> .uk-slidenav-previous::before {
+            position: absolute;
+            top: 50%;
+            left: 25px;
+            margin-top: -25px;
+        }
+        .<?php echo $lightbox_class;?> .uk-slidenav-next::before {
+            position: absolute;
+            top: 50%;
+            right: 25px;
+            margin-top: -25px;
+        }
+    </style>
+<?php endif ?>
+
+<div<?php echo $class; ?> data-<?php echo $cssprefix?>-slideshow="<?php echo $options; ?>">
 
     <div class="<?php echo $position_relative; ?>">
 

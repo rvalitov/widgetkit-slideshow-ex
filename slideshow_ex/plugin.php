@@ -73,6 +73,8 @@ return array(
 			'slide_link'		=> false,
 			'lightbox'			=> '',
             'lightbox_arrows'   => '',
+            'lightbox_areas'    => false,
+            'lightbox_area_size'=> '25%',
 
             'link_target'        => false,
             'class'              => ''
