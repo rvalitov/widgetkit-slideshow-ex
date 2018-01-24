@@ -75,6 +75,7 @@ return array(
             'lightbox_arrows'   => '',
             'lightbox_areas'    => false,
             'lightbox_area_size'=> '25%',
+            'nav_mode'           => '',
 
             'link_target'        => false,
             'class'              => ''

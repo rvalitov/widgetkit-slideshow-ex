@@ -134,6 +134,7 @@ $position_relative = str_replace('{wk}', $cssprefix, $position_relative);
 $class = $settings['class'] ? ' class="' . $settings['class'] . '"' : '';
 
 $lightbox_class=uniqid('wk-slideshowex');
+$settings['unique_id'] = $lightbox_class;
 
 if ($settings['lightbox']=='lightbox')
 	//Creating unique $groupcode variable to be used as a lightbox group id.
@@ -192,12 +193,12 @@ if ($settings['lightbox']=='lightbox' && $settings['lightbox_arrows']=='touch') 
     </style>
 <?php endif ?>
 
-<div<?php echo $class; ?> data-<?php echo $cssprefix?>-slideshow="<?php echo $options; ?>">
+<div<?php echo $class; ?> data-<?php echo $cssprefix?>-slideshow="<?php echo $options; ?>" id="<?php echo $lightbox_class;?>">
 
     <div class="<?php echo $position_relative; ?>">
 
         <ul class="<?php echo $cssprefix?>-slideshow<?php if ($settings['fullscreen']) echo ' '. $cssprefix. '-slideshow-fullscreen'; ?><?php if ($settings['overlay'] != 'none') echo ' '. $cssprefix. '-overlay-active'; ?>">
-        <?php foreach ($items as $item) :
+        <?php foreach ($items as $item_id => $item) :
 
                 // Media Type
                 $attrs  = array('class' => '');
@@ -257,6 +258,7 @@ if ($settings['lightbox']=='lightbox' && $settings['lightbox_arrows']=='touch') 
 						}
 					
 					if ( ($settings['slide_link']) && (strlen($the_link)>0) ){
+					    $item['lightbox_link'] = $the_link;
 						$the_link.=' class="slideshow-ex {wk}-position-cover"';
 						$the_link = str_replace('{wk}', $cssprefix, $the_link);
 						echo '<a '.$the_link.'>';

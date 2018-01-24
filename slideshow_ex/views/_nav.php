@@ -66,6 +66,10 @@ $nav = str_replace('{wk}', $cssprefix, $nav);
         }
 
     ?>
-    <li<?php echo $nav_item; ?> data-<?php echo $cssprefix?>-slideshow-item="<?php echo $i; ?>"><a href="#"><?php echo ($thumbnail) ? $thumbnail : $item['title']; ?></a></li>
+    <li<?php echo $nav_item; ?> data-<?php echo $cssprefix?>-slideshow-item="<?php echo $i; ?>">
+        <a <?php if ($settings['nav_mode']=='lightbox'): echo $items['lightbox_link']; elseif ($settings['nav_mode']=='lightbox_active'):?>href="#" onclick="event.preventDefault();event.stopPropagation();jQuery('#<?php echo $settings['unique_id'];?> ul.uk-slideshow > li.uk-active > a').click();"<?php else:?>href="#"<?php endif;?>>
+            <?php echo ($thumbnail) ? $thumbnail : $item['title']; ?>
+        </a>
+    </li>
 <?php endforeach; ?>
 </ul>

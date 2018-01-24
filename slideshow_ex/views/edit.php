@@ -39,6 +39,19 @@ $plugin=new WidgetkitExPlugin($app);
                             <option value="dotnav">{{'Dotnav' | trans}}</option>
                             <option value="thumbnails">{{'Thumbnails' | trans}}</option>
                         </select>
+                        <div class="uk-panel uk-panel-box uk-alert uk-alert-warning" ng-if="widget.data.nav != 'none' && widget.data['lightbox'] == ''">
+                            <p class="uk-text-center"><i class="uk-icon uk-icon-warning uk-margin-small-right"></i>The settings of the Lightbox mode are ignored, because you have not enabled the "Lightbox" mode in the "Media" tab.</p>
+                        </div>
+                        <p class="uk-form-controls-condensed" ng-if="widget.data.nav != 'none'">
+                            <label>
+                                <select id="wk-nav" class="uk-form-width-small" ng-model="widget.data['nav_mode']">
+                                    <option value="">{{'Default' | trans}}</option>
+                                    <option value="lightbox">{{'Lightbox' | trans}}</option>
+                                    <option value="lightbox">{{'Lightbox for active item' | trans}}</option>
+                                </select>
+                                {{'Mode' | trans}}
+                            </label>
+                        </p>
                         <p class="uk-form-controls-condensed" ng-if="widget.data.nav != 'none'">
                             <label><input type="checkbox" ng-model="widget.data['nav_overlay']"> {{'Position the nav as overlay.' | trans}}</label>
                         </p>
@@ -209,17 +222,6 @@ $plugin=new WidgetkitExPlugin($app);
                         <select id="wk-media-lightbox" class="uk-form-width-medium" ng-model="widget.data['lightbox']">
                             <option value="">{{'None' | trans}}</option>
                             <option value="lightbox">{{'Lightbox' | trans}}</option>
-                        </select>
-                    </div>
-                </div>
-
-                <div class="uk-form-row" ng-if="widget.data.lightbox === 'lightbox'">
-                    <span class="uk-form-label" for="wk-media-lightbox-arrows">{{'Lightbox Arrows' | trans}}<span data-uk-tooltip="'cls':'uk-slideshowex-tooltip'" title="{{ 'Visibility of left/right arrows.' | trans}}"><i></i></span></span>
-                    <div class="uk-form-controls">
-                        <select id="wk-media-lightbox-arrows" class="uk-form-width-medium" ng-model="widget.data['lightbox_arrows']">
-                            <option value="">{{'Visible on mouse hover' | trans}}</option>
-                            <option value="always">{{'Always visible' | trans}}</option>
-                            <option value="touch">{{'Visible for touch devices' | trans}}</option>
                         </select>
                     </div>
                 </div>
