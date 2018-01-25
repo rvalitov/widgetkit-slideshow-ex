@@ -256,13 +256,15 @@ if ($settings['lightbox']=='lightbox' && $settings['lightbox_arrows']=='touch') 
 							if ( ($settings['link']) && ($link_style) && (!$settings['slide_link']) )
 								$the_link.=' class="slideshow-ex ' . $link_style . '"';
 						}
-					
-					if ( ($settings['slide_link']) && (strlen($the_link)>0) ){
-					    $item['lightbox_link'] = $the_link;
-						$the_link.=' class="slideshow-ex {wk}-position-cover"';
-						$the_link = str_replace('{wk}', $cssprefix, $the_link);
-						echo '<a '.$the_link.'>';
-					}
+
+				    if (strlen($the_link)>0){
+                        $items[$item_id]['lightbox_link'] = $the_link;
+                        if ($settings['slide_link']){
+                            $the_link.=' class="slideshow-ex {wk}-position-cover"';
+                            $the_link = str_replace('{wk}', $cssprefix, $the_link);
+                            echo '<a '.$the_link.'>';
+                        }
+                    }
 					?>
 					
                     <?php if ($settings['overlay'] != 'none' && (($item['title'] && $settings['title']) || ($item['content'] && $settings['content']) || ($item['link'] && ($settings['link'] || $settings['overlay_link'])))) : ?>
