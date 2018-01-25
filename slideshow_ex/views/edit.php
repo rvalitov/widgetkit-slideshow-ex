@@ -47,7 +47,7 @@ $plugin=new WidgetkitExPlugin($app);
                                 <select id="wk-nav" class="uk-form-width-small" ng-model="widget.data['nav_mode']">
                                     <option value="">{{'Default' | trans}}</option>
                                     <option value="lightbox">{{'Lightbox' | trans}}</option>
-                                    <option value="lightbox">{{'Lightbox for active item' | trans}}</option>
+                                    <option value="lightbox_active">{{'Lightbox for active item' | trans}}</option>
                                 </select>
                                 {{'Mode' | trans}}
                             </label>
