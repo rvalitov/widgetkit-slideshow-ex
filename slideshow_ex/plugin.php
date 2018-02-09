@@ -77,6 +77,12 @@ return array(
             'lightbox_area_size'=> '25%',
             'nav_mode'           => '',
 
+            //Accessibility options
+            'WCAG_prev'          => 'Previous slide',
+            'WCAG_next'          => 'Next slide',
+            'WCAG_close'         => 'Close Lightbox',
+            'WCAG_open_lightbox' => 'Open in Lightbox mode',
+
             'link_target'        => false,
             'class'              => ''
         )

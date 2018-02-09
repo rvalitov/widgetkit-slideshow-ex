@@ -34,7 +34,12 @@ Git: https://github.com/rvalitov/widgetkit-slideshow-ex
             group           : false,
             class           : '',
             button          : 'uk-hidden-touch',
-            keyboard        : true
+            keyboard        : true,
+            //Accessibility options:
+            WCAG_prev       : 'Previous slide',
+            WCAG_next       : 'Next slide',
+            WCAG_close      : 'Close Lightbox',
+            WCAG_alt        : ''
         },
 
         index : 0,
@@ -199,8 +204,8 @@ Git: https://github.com/rvalitov/widgetkit-slideshow-ex
 
                 content = [
                     content,
-                    '<a href="#" class="uk-slidenav uk-slidenav-contrast uk-slidenav-previous '+this.options.button+'" data-lightbox-previous></a>',
-                    '<a href="#" class="uk-slidenav uk-slidenav-contrast uk-slidenav-next '+this.options.button+'" data-lightbox-next></a>'
+                    '<a href="#" class="uk-slidenav uk-slidenav-contrast uk-slidenav-previous '+this.options.button+'" data-lightbox-previous><span class="uk-hidden">'+this.options.WCAG_prev+'</span></a>',
+                    '<a href="#" class="uk-slidenav uk-slidenav-contrast uk-slidenav-next '+this.options.button+'" data-lightbox-next><span class="uk-hidden">'+this.options.WCAG_next+'</span></a>'
                 ].join('');
             }
 
@@ -292,7 +297,7 @@ Git: https://github.com/rvalitov/widgetkit-slideshow-ex
                     var resolve = function(source, width, height) {
 
                         data.meta = {
-                            content : '<img class="uk-responsive-width" width="'+width+'" height="'+height+'" src ="'+source+'">',
+                            content : '<img class="uk-responsive-width" width="'+width+'" height="'+height+'" src ="'+source+'" alt="'+lightboxex.options.WCAG_alt+'">',
                             width   : width,
                             height  : height
                         };
@@ -529,7 +534,7 @@ Git: https://github.com/rvalitov/widgetkit-slideshow-ex
         modal = UI.$([
             '<div class="uk-modal uk-modal-lightboxex ' + lightboxex.options.class + '">',
             '<div class="uk-modal-dialog uk-modal-dialog-lightbox uk-slidenav-position" style="margin-left:auto;margin-right:auto;width:200px;height:200px;top:'+Math.abs(window.innerHeight/2 - 200)+'px;">',
-            '<a href="#" class="uk-modal-close uk-close uk-close-alt"></a>',
+            '<a href="#" class="uk-modal-close uk-close uk-close-alt"><span class="uk-hidden">'+lightboxex.options.WCAG_close+'</span></a>',
             '<div class="uk-lightbox-content"></div>',
             '<div class="uk-modal-spinner uk-hidden"></div>',
             '</div>',

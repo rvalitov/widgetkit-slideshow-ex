@@ -19,6 +19,7 @@ $plugin=new WidgetkitExPlugin($app);
                 <li><a href="">{{'Media' | trans}}</a></li>
                 <li><a href="">{{'Content' | trans}}</a></li>
                 <li><a href="">{{'General' | trans}}</a></li>
+                <li><a href="">{{'Accessibility' | trans}}</a></li>
 				<li><a href="">{{'About' | trans}}</a></li>
             </ul>
         </div>
@@ -407,6 +408,43 @@ $plugin=new WidgetkitExPlugin($app);
                     <span class="uk-form-label" for="wk-class">{{'HTML Class' | trans}}<span data-uk-tooltip="'cls':'uk-slideshowex-tooltip'" title="{{ 'Adds a custom CSS class to the widget. You can specify several classes using space between them.' | trans}}"><i></i></span></span>
                     <div class="uk-form-controls">
                         <input id="wk-class" class="uk-form-width-medium" type="text" ng-model="widget.data['class']">
+                    </div>
+                </div>
+
+            </li>
+            <li>
+
+                <h3 class="wk-form-heading">{{'Descriptive links' | trans}}</h3>
+                <div class="uk-panel uk-panel-box uk-alert uk-alert-info">
+                    <i class="uk-icon uk-icon-info-circle uk-margin-small-right"></i>
+                    {{ "Please, provide text description for links and other navigation elements. If you set empty value, then the default text in English will be used." | trans }}
+                </div>
+
+                <div class="uk-form-row">
+                    <span class="uk-form-label" for="wk-wcag-prev">{{'Previous slide' | trans}}</span>
+                    <div class="uk-form-controls">
+                        <input id="wk-wcag-prev" class="uk-form-width-medium" type="text" ng-model="widget.data['WCAG_prev']">
+                    </div>
+                </div>
+
+                <div class="uk-form-row">
+                    <span class="uk-form-label" for="wk-wcag-next">{{'Next slide' | trans}}</span>
+                    <div class="uk-form-controls">
+                        <input id="wk-wcag-next" class="uk-form-width-medium" type="text" ng-model="widget.data['WCAG_next']">
+                    </div>
+                </div>
+
+                <div class="uk-form-row">
+                    <span class="uk-form-label" for="wk-wcag-close">{{'Close Lightbox' | trans}}</span>
+                    <div class="uk-form-controls">
+                        <input id="wk-wcag-close" class="uk-form-width-medium" type="text" ng-model="widget.data['WCAG_close']">
+                    </div>
+                </div>
+
+                <div class="uk-form-row">
+                    <span class="uk-form-label" for="wk-wcag-open-lightbox">{{'Open in Lightbox mode' | trans}}</span>
+                    <div class="uk-form-controls">
+                        <input id="wk-wcag-open-lightbox" class="uk-form-width-medium" type="text" ng-model="widget.data['WCAG_open_lightbox']">
                     </div>
                 </div>
 

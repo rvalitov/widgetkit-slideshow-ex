@@ -27,6 +27,12 @@ if ($settings['kenburns'] && $settings['kenburns_duration']) {
 
 $options = '{'.implode(',', array_filter($options)).'}';
 
+//Accessibility options
+$WCAG_prev = $settings['WCAG_prev'] ? $settings['WCAG_prev'] : "Previous slide";
+$WCAG_next = $settings['WCAG_next'] ? $settings['WCAG_next'] : "Next slide";
+$WCAG_close = $settings['WCAG_close'] ? $settings['WCAG_close'] : "Close Lightbox";
+$WCAG_open_lightbox = $settings['WCAG_open_lightbox'] ? $settings['WCAG_open_lightbox'] : "Open in Lightbox mode";
+
 // Overlay
 $overlay = '{wk}-overlay-panel';
 switch ($settings['overlay']) {
@@ -248,7 +254,7 @@ if ($settings['lightbox']=='lightbox' && $settings['lightbox_arrows']=='touch') 
 					        $button_class.="'uk-hidden-touch'";
 					    else
                             $button_class.="''";
-						$the_link.='data-{wk}-lightboxex="{group:\''.$groupcode.'\', class: \''.$lightbox_class.'\''.$button_class.'}" href="'.$item->get('media').'"';
+						$the_link.='data-{wk}-lightboxex="{group:\''.$groupcode.'\', class: \''.$lightbox_class.'\''.$button_class.', WCAG_prev: \''.$WCAG_prev.'\', WCAG_next: \''.$WCAG_next.'\', WCAG_close: \''.$WCAG_close.'\', WCAG_alt: \''.$attrs['alt'].'\'}" href="'.$item->get('media').'"';
 					}
 					else
 						if ($item['link']) {
@@ -262,7 +268,7 @@ if ($settings['lightbox']=='lightbox' && $settings['lightbox_arrows']=='touch') 
                         if ($settings['slide_link']){
                             $the_link.=' class="slideshow-ex {wk}-position-cover"';
                             $the_link = str_replace('{wk}', $cssprefix, $the_link);
-                            echo '<a '.$the_link.'>';
+                            echo '<a ' . $the_link . '><span class="uk-hidden">' . $WCAG_open_lightbox . '</span>';
                         }
                     }
 					?>
@@ -355,13 +361,13 @@ if ($settings['lightbox']=='lightbox' && $settings['lightbox_arrows']=='touch') 
         <?php if (in_array($settings['slidenav'], array('top-left', 'top-right', 'bottom-left', 'bottom-right'))) : ?>
         <div class="<?php echo $cssprefix?>-position-<?php echo $settings['slidenav']; ?> <?php echo $cssprefix?>-margin <?php echo $cssprefix?>-margin-left <?php echo $cssprefix?>-margin-right">
             <div class="<?php echo $cssprefix?>-grid <?php echo $cssprefix?>-grid-small">
-                <div><a href="#" class="<?php echo $cssprefix?>-slidenav <?php if ($settings['nav_contrast']) echo $cssprefix.'-slidenav-contrast'; ?> <?php echo $cssprefix?>-slidenav-previous" data-<?php echo $cssprefix?>-slideshow-item="previous"></a></div>
-                <div><a href="#" class="<?php echo $cssprefix?>-slidenav <?php if ($settings['nav_contrast']) echo $cssprefix.'-slidenav-contrast'; ?> <?php echo $cssprefix?>-slidenav-next" data-<?php echo $cssprefix?>-slideshow-item="next"></a></div>
+                <div><a href="#" class="<?php echo $cssprefix?>-slidenav <?php if ($settings['nav_contrast']) echo $cssprefix.'-slidenav-contrast'; ?> <?php echo $cssprefix?>-slidenav-previous" data-<?php echo $cssprefix?>-slideshow-item="previous"><span class="uk-hidden"><?php echo $WCAG_prev; ?></span></a></div>
+                <div><a href="#" class="<?php echo $cssprefix?>-slidenav <?php if ($settings['nav_contrast']) echo $cssprefix.'-slidenav-contrast'; ?> <?php echo $cssprefix?>-slidenav-next" data-<?php echo $cssprefix?>-slideshow-item="next"><span class="uk-hidden"><?php echo $WCAG_next; ?></span></a></div>
             </div>
         </div>
         <?php elseif ($settings['slidenav'] == 'default') : ?>
-        <a href="#" class="<?php echo $cssprefix?>-slidenav <?php if ($settings['nav_contrast']) echo $cssprefix.'-slidenav-contrast'; ?> <?php echo $cssprefix?>-slidenav-previous <?php echo $cssprefix?>-hidden-touch" data-<?php echo $cssprefix?>-slideshow-item="previous"></a>
-        <a href="#" class="<?php echo $cssprefix?>-slidenav <?php if ($settings['nav_contrast']) echo $cssprefix.'-slidenav-contrast'; ?> <?php echo $cssprefix?>-slidenav-next <?php echo $cssprefix?>-hidden-touch" data-<?php echo $cssprefix?>-slideshow-item="next"></a>
+            <a href="#" class="<?php echo $cssprefix?>-slidenav <?php if ($settings['nav_contrast']) echo $cssprefix.'-slidenav-contrast'; ?> <?php echo $cssprefix?>-slidenav-previous <?php echo $cssprefix?>-hidden-touch" data-<?php echo $cssprefix?>-slideshow-item="previous"><span class="uk-hidden"><?php echo $WCAG_prev; ?></span></a>
+            <a href="#" class="<?php echo $cssprefix?>-slidenav <?php if ($settings['nav_contrast']) echo $cssprefix.'-slidenav-contrast'; ?> <?php echo $cssprefix?>-slidenav-next <?php echo $cssprefix?>-hidden-touch" data-<?php echo $cssprefix?>-slideshow-item="next"><span class="uk-hidden"><?php echo $WCAG_next; ?></span></a>
         <?php endif ?>
 
         <?php if ($settings['nav_overlay'] && ($settings['nav'] != 'none')) : ?>
