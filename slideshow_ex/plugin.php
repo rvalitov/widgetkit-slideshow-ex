@@ -16,9 +16,9 @@ return array(
 
     'main' => 'YOOtheme\\Widgetkit\\Widget\\Widget',
 	
-	'plugin_version' => 'v1.4.0',
+	'plugin_version' => 'v1.4.1',
 	
-	'plugin_date' => '09/02/2018',
+	'plugin_date' => '10/02/2018',
 	
 	'plugin_logo' => 'https://raw.githubusercontent.com/wiki/rvalitov/widgetkit-slideshow-ex/images/logo.jpg',
 	

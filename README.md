@@ -1,4 +1,4 @@
-![Version](https://img.shields.io/badge/Release-v1.4.0-green.svg?style=flat) ![Widgetkit](https://img.shields.io/badge/Widgetkit-v2.4.x+-green.svg?style=flat) ![Joomla](https://img.shields.io/badge/Joomla!-v3.4.x+-yellow.svg?style=flat) ![Wordpress](https://img.shields.io/badge/Wordpress-v4.4.x+-yellow.svg?style=flat) ![PHP7](https://img.shields.io/badge/PHP7-compatible-blue.svg?style=flat) ![YoothemePro](https://img.shields.io/badge/YoothemePro-compatible-blue.svg?style=flat)
+![Version](https://img.shields.io/badge/Release-v1.4.1-green.svg?style=flat) ![Widgetkit](https://img.shields.io/badge/Widgetkit-v2.4.x+-green.svg?style=flat) ![Joomla](https://img.shields.io/badge/Joomla!-v3.4.x+-yellow.svg?style=flat) ![Wordpress](https://img.shields.io/badge/Wordpress-v4.4.x+-yellow.svg?style=flat) ![PHP7](https://img.shields.io/badge/PHP7-compatible-blue.svg?style=flat) ![YoothemePro](https://img.shields.io/badge/YoothemePro-compatible-blue.svg?style=flat)
 
 ![SlideshowEx widget logo](https://raw.githubusercontent.com/wiki/rvalitov/widgetkit-slideshow-ex/images/logo.jpg)
 # Overview
@@ -18,6 +18,7 @@ The new features that the SlideshowEx has and that are not available in the orig
 
 * **Clickable slide** - allows to make the whole slide clickable, [read more](https://github.com/rvalitov/widgetkit-slideshow-ex/wiki/How-to-make-the-whole-slide-clickable).
 * **Lightbox mode** - allows to open content in a lightbox, [read more](https://github.com/rvalitov/widgetkit-slideshow-ex/wiki/How-to-use-a-lightbox).
+* **Web accessibility support** - [read more](https://github.com/rvalitov/widgetkit-slideshow-ex/wiki/Accessibility).
 * **Tooltips for all options** - it's much easier to use the widget, because tooltips are available for all settings.
 * **Update notifications** - you will be notified if new versions of the widget are available.
 * **Multilingual interface**, translated into languages:
