@@ -7,32 +7,32 @@ Web: http://www.valitov.me/
 Git: https://github.com/rvalitov/widgetkit-slideshow-ex
 */
 
-require_once(__DIR__.'/views/WidgetkitExPlugin.php');
+require_once __DIR__.'/views/WidgetkitExPlugin.php';
 use WidgetkitEx\SlideshowEx\WidgetkitExPlugin;
 
-return array(
+return [
 
     'name' => 'widget/slideshow_ex',
 
     'main' => 'YOOtheme\\Widgetkit\\Widget\\Widget',
-	
-	'plugin_version' => 'v1.4.1',
-	
-	'plugin_date' => '10/02/2018',
-	
-	'plugin_logo' => 'https://raw.githubusercontent.com/wiki/rvalitov/widgetkit-slideshow-ex/images/logo.jpg',
-	
-	'plugin_wiki' => 'https://github.com/rvalitov/widgetkit-slideshow-ex/wiki',
 
-    'config' => array(
+    'plugin_version' => 'v1.4.1',
 
-        'name'  => 'slideshow_ex',
-        'label' => 'SlideshowEx',
-        'core'  => true,
-        'icon'  => 'plugins/widgets/slideshow_ex/widget.svg',
-        'view'  => 'plugins/widgets/slideshow_ex/views/widget.php',
-        'item'  => array('title', 'content', 'media'),
-        'settings' => array(
+    'plugin_date' => '10/02/2018',
+
+    'plugin_logo' => 'https://raw.githubusercontent.com/wiki/rvalitov/widgetkit-slideshow-ex/images/logo.jpg',
+
+    'plugin_wiki' => 'https://github.com/rvalitov/widgetkit-slideshow-ex/wiki',
+
+    'config' => [
+
+        'name'     => 'slideshow_ex',
+        'label'    => 'SlideshowEx',
+        'core'     => true,
+        'icon'     => 'plugins/widgets/slideshow_ex/widget.svg',
+        'view'     => 'plugins/widgets/slideshow_ex/views/widget.php',
+        'item'     => ['title', 'content', 'media'],
+        'settings' => [
             'nav'                => 'dotnav',
             'nav_overlay'        => true,
             'nav_align'          => 'center',
@@ -69,12 +69,12 @@ return array(
             'link_text'          => 'Read more',
             'badge'              => true,
             'badge_style'        => 'badge',
-			
-			'slide_link'		=> false,
-			'lightbox'			=> '',
-            'lightbox_arrows'   => '',
-            'lightbox_areas'    => false,
-            'lightbox_area_size'=> '25%',
+
+            'slide_link'		       => false,
+            'lightbox'			        => '',
+            'lightbox_arrows'    => '',
+            'lightbox_areas'     => false,
+            'lightbox_area_size' => '25%',
             'nav_mode'           => '',
 
             //Accessibility options
@@ -84,65 +84,66 @@ return array(
             'WCAG_open_lightbox' => 'Open in Lightbox mode',
 
             'link_target'        => false,
-            'class'              => ''
-        )
+            'class'              => '',
+        ],
 
-    ),
+    ],
 
-    'events' => array(
+    'events' => [
 
-        'init.site' => function($event, $app) {
-			$uikit=(WidgetkitExPlugin::getCSSPrefix($app)=='uk') ? 'uikit' : 'uikit2';
-            $app['scripts']->add('uikit-slideshow', 'vendor/assets/uikit/js/components/slideshow.min.js', array($uikit));
-            $app['scripts']->add('uikit-lightbox-ex', 'plugins/widgets/slideshow_ex/assets/lightbox-ex.js', array('widgetkit-ex'));
-            $app['scripts']->add('uikit-slideshow-fx', 'vendor/assets/uikit/js/components/slideshow-fx.min.js', array($uikit));
-			//Adding private CSS:
-			$app['styles']->add('ram-slideshow-ex', 'plugins/widgets/slideshow_ex/css/slideshow-ex.css', array('widgetkit-application'));
+        'init.site' => function ($event, $app) {
+            $uikit = (WidgetkitExPlugin::getCSSPrefix($app) == 'uk') ? 'uikit' : 'uikit2';
+            $app['scripts']->add('uikit-slideshow', 'vendor/assets/uikit/js/components/slideshow.min.js', [$uikit]);
+            $app['scripts']->add('uikit-lightbox-ex', 'plugins/widgets/slideshow_ex/assets/lightbox-ex.js', ['widgetkit-ex']);
+            $app['scripts']->add('uikit-slideshow-fx', 'vendor/assets/uikit/js/components/slideshow-fx.min.js', [$uikit]);
+            //Adding private CSS:
+            $app['styles']->add('ram-slideshow-ex', 'plugins/widgets/slideshow_ex/css/slideshow-ex.css', ['widgetkit-application']);
         },
 
-        'init.admin' => function($event, $app) {
-			$plugin=new WidgetkitExPlugin($app);
-			$uikit=($plugin->getCSSPrefix($app)=='uk') ? 'uikit' : 'uikit2';
-			//Backend CSS
-			$app['styles']->add('slideshow_ex_edit', 'plugins/widgets/slideshow_ex/css/slideshowex.edit.css', array('widgetkit-application'));
-			//Adding our own translations:
-			$app['translator']->addResource('plugins/widgets/slideshow_ex/languages/'.$app['locale'].'.json');
-			//Edit template:
+        'init.admin' => function ($event, $app) {
+            $plugin = new WidgetkitExPlugin($app);
+            $uikit = ($plugin->getCSSPrefix($app) == 'uk') ? 'uikit' : 'uikit2';
+            //Backend CSS
+            $app['styles']->add('slideshow_ex_edit', 'plugins/widgets/slideshow_ex/css/slideshowex.edit.css', ['widgetkit-application']);
+            //Adding our own translations:
+            $app['translator']->addResource('plugins/widgets/slideshow_ex/languages/'.$app['locale'].'.json');
+            //Edit template:
             $app['angular']->addTemplate('slideshow_ex.edit', 'plugins/widgets/slideshow_ex/views/edit.php', true);
-			//Adding tooltip:
-			$app['scripts']->add($uikit.'-tooltip', 'vendor/assets/uikit/js/components/tooltip.min.js', array($uikit));
-			$app['styles']->add($uikit.'-tooltip', 'https://cdnjs.cloudflare.com/ajax/libs/uikit/'.$plugin->getUIkitVersion().'/css/components/tooltip.min.css', array($uikit));
-			//jQuery wait plugin:
-			$app['scripts']->add('jquery.wait', 'plugins/widgets/slideshow_ex/assets/jquery.wait.min.js', array($uikit));
-			//Marked:
-			$app['scripts']->add('marked', 'plugins/widgets/slideshow_ex/assets/marked.min.js', array($uikit));
-			//Mailchimp for subscription:
-			$app['scripts']->add('mailchimp', 'plugins/widgets/slideshow_ex/assets/jquery.formchimp.min.js', array($uikit));
-			//Underscore.js
-			$app['scripts']->add('underscore', 'plugins/widgets/slideshow_ex/assets/underscore-min.js', array($uikit));
-			//Semantic version compare
-			$app['scripts']->add('versioncompare', 'plugins/widgets/slideshow_ex/assets/versioncompare.min.js', array($uikit));
-			//Marked:
-			$app['scripts']->add('replacer', 'plugins/widgets/slideshow_ex/assets/replacer.min.js', array($uikit));
-			//Generating dynamic update script:
-			$app['scripts']->add('slideshow_ex.dynamic-updater', $plugin->generateUpdaterJS($app), array(), 'string');
+            //Adding tooltip:
+            $app['scripts']->add($uikit.'-tooltip', 'vendor/assets/uikit/js/components/tooltip.min.js', [$uikit]);
+            $app['styles']->add($uikit.'-tooltip', 'https://cdnjs.cloudflare.com/ajax/libs/uikit/'.$plugin->getUIkitVersion().'/css/components/tooltip.min.css', [$uikit]);
+            //jQuery wait plugin:
+            $app['scripts']->add('jquery.wait', 'plugins/widgets/slideshow_ex/assets/jquery.wait.min.js', [$uikit]);
+            //Marked:
+            $app['scripts']->add('marked', 'plugins/widgets/slideshow_ex/assets/marked.min.js', [$uikit]);
+            //Mailchimp for subscription:
+            $app['scripts']->add('mailchimp', 'plugins/widgets/slideshow_ex/assets/jquery.formchimp.min.js', [$uikit]);
+            //Underscore.js
+            $app['scripts']->add('underscore', 'plugins/widgets/slideshow_ex/assets/underscore-min.js', [$uikit]);
+            //Semantic version compare
+            $app['scripts']->add('versioncompare', 'plugins/widgets/slideshow_ex/assets/versioncompare.min.js', [$uikit]);
+            //Marked:
+            $app['scripts']->add('replacer', 'plugins/widgets/slideshow_ex/assets/replacer.min.js', [$uikit]);
+            //Generating dynamic update script:
+            $app['scripts']->add('slideshow_ex.dynamic-updater', $plugin->generateUpdaterJS($app), [], 'string');
         },
-		
-		'request' => function($event, $app) {
-			$global=null;
-			if ( (isset($app['request'])) && (isset($app['request']->request)) ) {
-				$content=$app['request']->request->get('content');
-				if (isset($content['data']['_widget']['data']['global']))
-					$global=$content['data']['_widget']['data']['global'];
-			}
-				
-			if ($global){
-				//Global is set for valid requests like "Save" and "Save & Close"
-				$plugin=new WidgetkitExPlugin($app);
-				$plugin->saveGlobalSettings($global);
-			}
-		}
 
-    )
+        'request' => function ($event, $app) {
+            $global = null;
+            if ((isset($app['request'])) && (isset($app['request']->request))) {
+                $content = $app['request']->request->get('content');
+                if (isset($content['data']['_widget']['data']['global'])) {
+                    $global = $content['data']['_widget']['data']['global'];
+                }
+            }
 
-);
+            if ($global) {
+                //Global is set for valid requests like "Save" and "Save & Close"
+                $plugin = new WidgetkitExPlugin($app);
+                $plugin->saveGlobalSettings($global);
+            }
+        },
+
+    ],
+
+];

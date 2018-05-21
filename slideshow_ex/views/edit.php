@@ -8,7 +8,8 @@ Git: https://github.com/rvalitov/widgetkit-slideshow-ex
 */
 
 use WidgetkitEx\SlideshowEx\WidgetkitExPlugin;
-$plugin=new WidgetkitExPlugin($app);
+
+$plugin = new WidgetkitExPlugin($app);
 ?>
 <div class="uk-grid uk-grid-divider uk-form uk-form-horizontal uk-slideshowex" data-uk-grid-margin>
     <div class="uk-width-medium-1-4">
@@ -453,11 +454,11 @@ $plugin=new WidgetkitExPlugin($app);
 
                 <h3 class="wk-form-heading">{{'About' | trans}}</h3>
 
-				<?php $plugin->printAboutInfo($app);?>
+				<?php $plugin->printAboutInfo($app); ?>
 
 				<h3 class="wk-form-heading">{{'Newsletter' | trans}}</h3>
 	
-				<?php $plugin->printNewsletterInfo($app);?>
+				<?php $plugin->printNewsletterInfo($app); ?>
 				
 				<h3 class="wk-form-heading">{{'Donation' | trans}}</h3>
 				<?php $plugin->printDonationInfo($app);?>
