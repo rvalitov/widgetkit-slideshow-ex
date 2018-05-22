@@ -19,3 +19,4 @@ Thumbs.db
 .*
 !/.gitignore
 !/.travis.yml
+!/.codeclimate.yml

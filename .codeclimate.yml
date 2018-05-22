@@ -1,0 +1,20 @@
+plugins:
+  markdownlint:
+    enabled: true
+  phan:
+    enabled: true
+    config:
+      file_extensions: "php"
+  phpcodesniffer:
+    enabled: true
+    config:
+      file_extensions: "php,inc,lib"
+  phpmd:
+    enabled: true
+    config:
+      file_extensions: 
+        - php
+        - inc
+  stylelint:
+    enabled: true 
+   
