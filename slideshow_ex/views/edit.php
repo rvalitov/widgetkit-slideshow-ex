@@ -461,7 +461,7 @@ $plugin = new WidgetkitExPlugin($app);
 				<?php $plugin->printNewsletterInfo($app); ?>
 				
 				<h3 class="wk-form-heading">{{'Donation' | trans}}</h3>
-				<?php $plugin->printDonationInfo($app);?>
+				<?php $plugin->printDonationInfo($app); ?>
 
             </li>
         </ul>
