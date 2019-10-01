@@ -14,9 +14,3 @@ Thumbs.db
 #archives:
 *.zip
 *.rar
-
-#hidden files:
-.*
-!/.gitignore
-!/.travis.yml
-!/.codeclimate.yml
