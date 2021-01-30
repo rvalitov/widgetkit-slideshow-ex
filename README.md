@@ -1,8 +1,17 @@
-![Version](https://img.shields.io/badge/Release-v1.4.1-green.svg?style=flat) ![Widgetkit](https://img.shields.io/badge/Widgetkit-v2.4.x+-green.svg?style=flat) ![Joomla](https://img.shields.io/badge/Joomla!-v3.4.x+-yellow.svg?style=flat) ![Wordpress](https://img.shields.io/badge/Wordpress-v4.4.x+-yellow.svg?style=flat) ![PHP7](https://img.shields.io/badge/PHP7-compatible-blue.svg?style=flat) ![YoothemePro](https://img.shields.io/badge/YoothemePro-compatible-blue.svg?style=flat) [![Maintainability](https://api.codeclimate.com/v1/badges/68eab31b815e8d80c8ad/maintainability)](https://codeclimate.com/github/rvalitov/widgetkit-slideshow-ex/maintainability) [![Test Coverage](https://api.codeclimate.com/v1/badges/68eab31b815e8d80c8ad/test_coverage)](https://codeclimate.com/github/rvalitov/widgetkit-slideshow-ex/test_coverage)
+![Version](https://img.shields.io/badge/Release-v1.4.1-green.svg?style=flat) ![Widgetkit](https://img.shields.io/badge/Widgetkit-v2.4.x+-green.svg?style=flat) ![Widgetkit 3](https://img.shields.io/badge/Widgetkit_3-not_supported-red.svg?style=flat) ![Joomla](https://img.shields.io/badge/Joomla!-v3.4.x+-yellow.svg?style=flat) ![Wordpress](https://img.shields.io/badge/Wordpress-v4.4.x+-yellow.svg?style=flat) ![PHP7](https://img.shields.io/badge/PHP7-compatible-blue.svg?style=flat) ![YoothemePro](https://img.shields.io/badge/YoothemePro-compatible-blue.svg?style=flat) [![Maintainability](https://api.codeclimate.com/v1/badges/68eab31b815e8d80c8ad/maintainability)](https://codeclimate.com/github/rvalitov/widgetkit-slideshow-ex/maintainability) [![Test Coverage](https://api.codeclimate.com/v1/badges/68eab31b815e8d80c8ad/test_coverage)](https://codeclimate.com/github/rvalitov/widgetkit-slideshow-ex/test_coverage)
 
 ![SlideshowEx widget logo](https://raw.githubusercontent.com/wiki/rvalitov/widgetkit-slideshow-ex/images/logo.jpg)
 # Overview
 **SlideshowEx** is an advanced Slideshow widget for [Yootheme Widgetkit2](https://yootheme.com/widgetkit). After installation it becomes available in the Widgets list as a "native" widget and can be used as any other widget.
+
+__Notice about Widgetkit 3 and status of this project__: Yootheme [announced](https://yootheme.com/blog/2021/01/26/widgetkit-3.0-completely-rebuilt-with-uikit-3) a third version of Widgetkit on January 26th, 2021.
+I received reports that after upgrade to Widgetkit 3 my widgets do not work properly.
+I'm very sorry that I currently not able to devote my time to this project to develop it further.
+In its current state it's "bug free" and works with Widgetkit 2 and Joomla 3.
+Currently, I don't have plans to add support for Widgetkit 3 or add any other serious improvements.
+This project has been my pet project that I was doing in my free time, and I've been happy to share it for free with the community.
+As I stopped using Widgetkit in my own websites, I lost motivation in further updates to this project.
+I'm happy if my work and widgets were of any help or use in your websites!
 
 ## Features
 ### Basic Features
